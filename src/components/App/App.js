@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Post from '../Post/Post.js';
 import Comments from '../Comments/Comments.js';
 import Show from '../Show/Show.js';
+import Add from '../Add/Add.js';
 
 // import './App.css';
 import axios from "axios";
@@ -19,6 +20,7 @@ class App extends Component {
   constructor(props) {
     super (props)
     this.state = {
+        // posts: []
       posts: [
     {"userName": "Diona", "title": "More on React", "date": "10/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
     {"userName": "Aaliyah", "title": "Design Ideas", "date": "09/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
@@ -29,7 +31,17 @@ class App extends Component {
     ]}
   }
 
-
+//   componentWillMount () {
+//   axios.get("http://localhost:4000/posts")
+//   .then(response => {
+//     this.setState({
+//       posts: response.data
+//     })
+//   })
+//   .catch((err) => {
+//       console.log(err)
+//     })
+// }
   render() {
     return (
 
@@ -38,6 +50,7 @@ class App extends Component {
             <div className="nav">
               <div className="nav-item"><span className="nav-logo">GA Aha!</span></div>
               <div className="nav-item"><Link to="/">Posts</Link></div>
+              <div className="nav-item"><Link to="/add">Create a new Post</Link></div>
 
             </div>
             <div className="main">
@@ -60,6 +73,11 @@ class App extends Component {
                           posts={this.state.posts} /> )}
                         />
 
+
+
+                <Route path="/add" render={() => (
+                    <Add /> )}
+                  />
 
                 <Route
                   path="/*"
