@@ -8,7 +8,7 @@ export default class Add extends Component {
   constructor() {
     super ()
     this.state = {
-      userNamename: '',
+      name: '',
       title: '',
       content: '',
       date: ''
@@ -27,6 +27,10 @@ export default class Add extends Component {
       [name]: e.target.value
     })
 
+    console.log(this.state.name)
+    console.log(this.state.content)
+    console.log(this.state.title)
+
 
   }
 
@@ -35,7 +39,7 @@ export default class Add extends Component {
     e.preventDefault()
     axios.post("http://localhost:4000/", {
 
-        userName: this.state.user,
+        name: this.state.name,
         title: this.state.title,
         content: this.state.content,
         date: this.state.date
@@ -58,12 +62,11 @@ export default class Add extends Component {
 
       <h2>Create a new post</h2>
       <form onSubmit={this.handleSubmitPost}>
-        <input name="userName" type="text" placeholder="name"  onChange={this.handleCreatePost} />
+        <input name="name" type="text" placeholder="name"  onChange={this.handleCreatePost} />
         <input name="title" type="text" placeholder="title" onChange={this.handleCreatePost} />
         <input name="content" type="text" placeholder="content" onChange={this.handleCreatePost} />
         <input name="date" type="text" placeholder="date" onChange={this.handleCreatePost}  />
-
-        <input className="add-btn" type="submit" value="Add" />
+        <input className="add-btn" type="submit" value="Create" />
       </form>
     </div>
 
@@ -72,8 +75,6 @@ export default class Add extends Component {
 
 
   }
-
-
 
 
 }

@@ -61,6 +61,10 @@ class App extends Component {
                 )}
                 />
 
+                <Route exact path="/postCreate" render={() => (
+                    <Add /> )}
+                  />
+
                 <Route path="/:_id" render={ (props) => (
 
                     <Show
@@ -76,9 +80,7 @@ class App extends Component {
 
 
 
-                <Route exact path="/postCreate" render={() => (
-                    <Add /> )}
-                  />
+
 
                 <Route
                   path="/*"
