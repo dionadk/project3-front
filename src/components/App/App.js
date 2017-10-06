@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Post from '../Post/Post.js';
 import Comments from '../Comments/Comments.js';
+import Show from '../Show/Show.js';
 
 // import './App.css';
 import axios from "axios";
@@ -45,6 +46,13 @@ class App extends Component {
                 <Post posts={this.state.posts} />
                 )}
                 />
+
+                <Route exact path="/show/:userName" render={ (props) => (
+
+                    <Show
+                      {...props}
+                      posts={this.state.posts} /> )}
+                    />
 
                 <Route
                   path="/*"

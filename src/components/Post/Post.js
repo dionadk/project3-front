@@ -20,7 +20,7 @@ export default class Post extends Component {
           <h2>Posts</h2>
             <ul>
               {this.props.posts.map(post => {
-                return (<li key={post.userName}>{post.userName}</li>)
+                return (<li key={post.userName}><Link to={`/show/${post.title}`}>{post.title}</Link></li>)
               })}
             </ul>
           </div>
