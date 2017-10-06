@@ -78,7 +78,7 @@ class App extends Component {
                       posts={this.state.posts} /> )}
                     />
 
-              <Route
+                <Route
                   path="/*"
                   render={ () => (<Redirect to="/" />)}
                 />

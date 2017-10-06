@@ -15,7 +15,7 @@ export default class Comments extends Component {
   handleCreateComment (e) {
     e.preventDefault()
     const name = e.target.name
-    let newPost = []
+    let newComment = []
     this.setState ({
       [name]: e.target.value
     })
@@ -26,7 +26,7 @@ export default class Comments extends Component {
   handleSubmitComment(e) {
     e.preventDefault()
     console.log(this.state.name, this.state.content, this.props.post._id)
-    axios.post(`http://localhost:4000/createComment`, {
+    axios.post("http://localhost:4000/createComment", {
 
         name: this.state.name,
         content: this.state.content,

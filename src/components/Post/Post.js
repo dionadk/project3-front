@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Comments from '../Comments/Comments.js';
 import {
   Link
 } from "react-router-dom"
@@ -11,8 +12,6 @@ export default class Post extends Component {
   }
 
 }
-
-
 
   render () {
     return (
