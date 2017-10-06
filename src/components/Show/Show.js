@@ -20,7 +20,7 @@ export default class Show extends Component {
   render () {
     return (
       <div>
-      <h1>Posts in detail</h1>
+      <h1>Posts</h1>
 
             <p>Name:{this.state.post.userName}</p>
             <p>Title:{this.state.post.title}</p>
