@@ -23,8 +23,9 @@ export default class Show extends Component {
 
             <p>Name:{this.state.post.userName}</p>
             <p>Title:{this.state.post.title}</p>
-            <p>Content:{this.state.post.conyent}</p>
+            <p>Content:{this.state.post.content}</p>
             <p>Date:{this.state.post.date}</p>
+            <p>Comment:{this.state.post.comment}</p>
 
 
       </div>

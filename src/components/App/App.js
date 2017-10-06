@@ -21,7 +21,7 @@ class App extends Component {
     this.state = {
       posts: [
     {"userName": "Diona", "title": "More on React", "date": "10/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
-    {"userName": "Aaliyah", "title": "DEsign Ideas", "date": "09/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
+    {"userName": "Aaliyah", "title": "Design Ideas", "date": "09/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
     {"userName": "Max", "title": "Html and css", "date": "08/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
     {"userName": "Drew", "title": "Redux", "date": "10/01/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
     {"userName": "Netsue", "title": "More on JS", "date": "08/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
@@ -36,7 +36,7 @@ class App extends Component {
       <Router>
           <div>
             <div className="nav">
-              <div className="nav-item"><span className="nav-logo">GA Posts</span></div>
+              <div className="nav-item"><span className="nav-logo">GA Aha!</span></div>
               <div className="nav-item"><Link to="/">Posts</Link></div>
 
             </div>
@@ -53,6 +53,13 @@ class App extends Component {
                       {...props}
                       posts={this.state.posts} /> )}
                     />
+                    <Route exact path="/show/:post/comments" render={ (props) => (
+
+                        <Show
+                          {...props}
+                          posts={this.state.posts} /> )}
+                        />
+
 
                 <Route
                   path="/*"
