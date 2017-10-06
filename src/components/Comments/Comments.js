@@ -17,7 +17,8 @@ export default class Comments extends Component {
     const name = e.target.name
     let newPost = []
     this.setState ({
-      [name]: e.target.value
+      [name]: e.target.value,
+      post: this.props.post._id
     })
 
 
@@ -25,16 +26,13 @@ export default class Comments extends Component {
 
   handleSubmitComment(e) {
     e.preventDefault()
-    console.log(this.state.name, this.state.content, this.props.post._id)
-    axios.post(`http://localhost:4000/createComment`, {
-
+    console.log(this.state.name, this.state.content, this.state.post)
+    axios.post("http://localhost:4000/createComment", {
         name: this.state.name,
         content: this.state.content,
-        post: this.props.post._id
-
-
+        post: this.state.post
     })
-
+    .then((response => console.log(response)))
     .catch((err) => {
       console.log(err)
     })
@@ -49,7 +47,8 @@ export default class Comments extends Component {
         <form onSubmit={this.handleSubmitComment}>
           <input name="name" type="text" placeholder="name" onChange={this.handleCreateComment} />
           <input name="content" type="text" placeholder="content" onChange={this.handleCreateComment} />
-          <input className="add btn" type="Submit" value="Comment" />
+          <button type='submit'>Comment</button>
+          {/* <input className="add btn" type="Submit" value="Comment" /> */}
         </form>
 
       </div>

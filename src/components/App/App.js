@@ -50,14 +50,14 @@ class App extends Component {
     return (
       <Router>
           <div>
-  <Navbar>
+          <Navbar>
             <Navbar.Header>
               <Navbar.Brand>
                 <a href="#">GA Blog</a>
               </Navbar.Brand>
             </Navbar.Header>
             <Nav>
-              <NavItem eventKey={1}><Link to="/">Posts</Link></NavItem>
+              <NavItem eventKey={1}><Link to="/">Home</Link></NavItem>
               <NavItem eventKey={2}><Link to="/">Posts</Link></NavItem>
               <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
                 <MenuItem eventKey={3.1}>WDI</MenuItem>
@@ -75,33 +75,42 @@ class App extends Component {
                 <Route exact path="/" render={ () => (
                 <Post posts={this.state.posts} />
                 )}
+              />
+            <Switch>
+              <Route exact path="/" render={ () => (
+                <Post 
+                  posts={this.state.posts} 
+
                 />
+              )}/>
 
-                <Route exact path="/postCreate" render={() => (
-                    <Add /> )}
-                  />
+              <Route exact path="/postCreate" render={() => (
+                <Add /> 
+              )}/>
 
-                <Route path="/:_id" render={ (props) => (
+              <Route exact path="/:_id" render={ (props) => (
+                <Show
+                  {...props}
+                  posts={this.state.posts} 
+                /> 
+              )}/>
 
-                    <Show
-                      {...props}
-                      posts={this.state.posts} /> )}
-                    />
-                <Route exact path="/:_id/comments" render={ (props) => (
+              <Route exact path="/:_id/comments" render={ (props) => (
+                <Show
+                  {...props}
+                  posts={this.state.posts} 
+                /> 
+              )}/>
 
-                    <Show
-                      {...props}
-                      posts={this.state.posts} /> )}
-                    />
-
-              <Route
-                  path="/*"
-                  render={ () => (<Redirect to="/" />)}
+              <Route path="/*" render={ () => (
+                <Redirect 
+                  to="/" 
                 />
-              </Switch>
-            </div>
+              )}/>
+            </Switch>
           </div>
-        </Router>
+        </div>
+      </Router>
     );
   }
 }
