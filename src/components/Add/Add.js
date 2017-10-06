@@ -10,9 +10,7 @@ export default class Add extends Component {
     this.state = {
       name: '',
       title: '',
-      content: '',
-      date: ''
-
+      content: ''
     }
 
       this.handleCreatePost = this.handleCreatePost.bind(this)
@@ -37,25 +35,17 @@ export default class Add extends Component {
 
   handleSubmitPost(e) {
     e.preventDefault()
-    axios.post("http://localhost:4000/", {
-
+    axios.post("http://localhost:4000/postCreate", {
         name: this.state.name,
         title: this.state.title,
         content: this.state.content,
-        date: this.state.date
-
     })
-    .then((response) => {
-      this.setState({
-        posts: response.data
-      })})
     .catch((err) => {
       console.log(err)
     })
+  }
 
-}
-
-  render (){
+  render () {
 
     return (
       <div className="add">
@@ -65,7 +55,6 @@ export default class Add extends Component {
         <input name="name" type="text" placeholder="name"  onChange={this.handleCreatePost} />
         <input name="title" type="text" placeholder="title" onChange={this.handleCreatePost} />
         <input name="content" type="text" placeholder="content" onChange={this.handleCreatePost} />
-        <input name="date" type="text" placeholder="date" onChange={this.handleCreatePost}  />
         <input className="add-btn" type="submit" value="Create" />
       </form>
     </div>
