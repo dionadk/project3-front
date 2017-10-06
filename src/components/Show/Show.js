@@ -1,22 +1,28 @@
 import React, { Component } from 'react'
 import Comments from '../Comments/Comments.js';
+import axios from 'axios'
+
 
 export default class Show extends Component {
     constructor(props){
       super(props)
-      console.log(this.props.match.params.title)
-      let selectedPost = this.props.match.params.title
-      let singlePost
-      this.props.posts.forEach (item => {
-        if(item.tile === selectedPost){
-        singlePost = item
-      }
-      })
+    // looking for unique id to loop through and find the exact match
+      let selectedPost = this.props.match.params._id
+      let singlePost = props.posts.filter(item => item._id === selectedPost)
       this.state = {
-        post: singlePost
+        post: []
       }
 
     }
+
+    componentDidMount () {
+      let selectedPost = this.props.match.params._id
+      axios.get(`http://localhost:4000/${selectedPost}`)
+           .then(response => this.setState({post: response.data}))
+           .catch((err) => console.log(err))
+}
+
+
   render () {
     return (
       <div>
