@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Comments from '../Comments/Comments.js';
 
 export default class Show extends Component {
     constructor(props){
@@ -26,6 +27,7 @@ export default class Show extends Component {
             <p>Content:{this.state.post.content}</p>
             <p>Date:{this.state.post.date}</p>
             <p>Comment:{this.state.post.comment}</p>
+            <Comments post={this.state.post}/>
 
 
       </div>

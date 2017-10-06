@@ -8,6 +8,7 @@ export default class Comments extends Component {
       date: '',
       content: ''
     }
+    // this.handleCreateComment = this.handleCreateComment.bind(this)
   }
   render(){
 
@@ -20,27 +21,10 @@ export default class Comments extends Component {
           <input name="date" type="text" placeholder="date" onChange={this.handleCreateComment} />
           <input name="content" type="text" placeholder="content" onChange={this.handleCreateComment} />
 
-          <input className="add btn" type="Submit" value="Add" />
+          <input className="add btn" type="Submit" value="Comment" />
         </form>
 
       </div>
     )
   }
 }
-
-//   render () {
-//     return (
-//     <div className="comment">
-//         <div className="actor">
-//         {this.props.name}
-//         </div>
-//         <div className="content">
-//           {this.props.content}
-//         </div>
-//         <div className="date">
-//           {this.props.date}
-//         </div>
-//   </div>
-//   )}
-//
-// }
