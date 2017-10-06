@@ -51,7 +51,7 @@ class App extends Component {
             <div className="nav">
               <div className="nav-item"><span className="nav-logo">GA Aha!</span></div>
               <div className="nav-item"><Link to="/">Posts</Link></div>
-              <div className="nav-item"><Link to="/add">Create a new Post</Link></div>
+              <div className="nav-item"><Link to="/postCreate">Create a new Post</Link></div>
 
             </div>
             <div className="main">
@@ -67,16 +67,16 @@ class App extends Component {
                       {...props}
                       posts={this.state.posts} /> )}
                     />
-                    <Route exact path="/:_id/comments" render={ (props) => (
+                <Route exact path="/:_id/comments" render={ (props) => (
 
-                        <Show
-                          {...props}
-                          posts={this.state.posts} /> )}
-                        />
+                    <Show
+                      {...props}
+                      posts={this.state.posts} /> )}
+                    />
 
 
 
-                <Route path="/add" render={() => (
+                <Route exact path="/postCreate" render={() => (
                     <Add /> )}
                   />
 
