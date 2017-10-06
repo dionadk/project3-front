@@ -45,47 +45,48 @@ class App extends Component {
 }
   render() {
     return (
-
       <Router>
-          <div>
-            <div className="nav">
-              <div className="nav-item"><span className="nav-logo">GA Aha!</span></div>
-              <div className="nav-item"><Link to="/">Posts</Link></div>
-              <div className="nav-item"><Link to="/postCreate">Create a new Post</Link></div>
-
-            </div>
-            <div className="main">
-              <Switch>
-                <Route exact path="/" render={ () => (
-                <Post posts={this.state.posts} />
-                )}
+        <div>
+          <div className="nav">
+            <div className="nav-item"><span className="nav-logo">GA Aha!</span></div>
+            <div className="nav-item"><Link to="/">Posts</Link></div>
+            <div className="nav-item"><Link to="/postCreate">Create a new Post</Link></div>
+          </div>
+          <div className="main">
+            <Switch>
+              <Route exact path="/" render={ () => (
+                <Post
+                  posts={this.state.posts}
                 />
+              )}/>
 
-                <Route exact path="/postCreate" render={() => (
-                    <Add /> )}
-                  />
+              <Route exact path="/postCreate" render={() => (
+                <Add />
+              )}/>
 
-                <Route path="/:_id" render={ (props) => (
+              <Route exact path="/:_id" render={ (props) => (
+                <Show
+                  {...props}
+                  posts={this.state.posts}
+                />
+              )}/>
 
-                    <Show
-                      {...props}
-                      posts={this.state.posts} /> )}
-                    />
-                <Route exact path="/:_id/comments" render={ (props) => (
-
-                    <Show
-                      {...props}
-                      posts={this.state.posts} /> )}
-                    />
+              <Route exact path="/:_id/comments" render={ (props) => (
+                <Show
+                  {...props}
+                  posts={this.state.posts}
+                /> 
+              )}/>
 
                 <Route
                   path="/*"
                   render={ () => (<Redirect to="/" />)}
                 />
-              </Switch>
-            </div>
+              )}/>
+            </Switch>
           </div>
-        </Router>
+        </div>
+      </Router>
     );
   }
 }
