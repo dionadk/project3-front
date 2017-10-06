@@ -67,7 +67,7 @@ class App extends Component {
                       {...props}
                       posts={this.state.posts} /> )}
                     />
-                    <Route exact path="/show/:post/comments" render={ (props) => (
+                    <Route exact path="/:_id/comments" render={ (props) => (
 
                         <Show
                           {...props}

@@ -25,7 +25,7 @@ export default class Comments extends Component {
 
 //   handleSubmitComment(e) {
 //     e.preventDefault()
-//     axios.post(`http://localhost:4000/show/${this.state.post._id}`, {
+//     axios.post(`http://localhost:4000/${this.state.post._id}/comments`, {
 //
 //         name: this.state.name,
 //         title: this.state.title,
