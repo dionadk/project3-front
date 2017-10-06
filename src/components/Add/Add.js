@@ -16,7 +16,7 @@ export default class Add extends Component {
     }
 
       this.handleCreatePost = this.handleCreatePost.bind(this)
-      // this.handleSubmitPost = this.handleSubmitPost.bind(this)
+      this.handleSubmitPost = this.handleSubmitPost.bind(this)
   }
 
   handleCreatePost (e) {
@@ -31,25 +31,25 @@ export default class Add extends Component {
   }
 
 
-//   handleSubmitPost(e) {
-//     e.preventDefault()
-//     axios.post("http://localhost:3001/notebooks", {
-//
-//         name: this.state.name,
-//         title: this.state.title,
-//         content: this.state.content,
-//         date: this.state.date
-//
-//     })
-//     .then((response) => {
-//       this.setState({
-//         posts: response.data
-//       })})
-//     .catch((err) => {
-//       console.log(err)
-//     })
-//
-// }
+  handleSubmitPost(e) {
+    e.preventDefault()
+    axios.post("http://localhost:4000/", {
+
+        userName: this.state.user,
+        title: this.state.title,
+        content: this.state.content,
+        date: this.state.date
+
+    })
+    .then((response) => {
+      this.setState({
+        posts: response.data
+      })})
+    .catch((err) => {
+      console.log(err)
+    })
+
+}
 
   render (){
 

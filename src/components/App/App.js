@@ -20,28 +20,29 @@ class App extends Component {
   constructor(props) {
     super (props)
     this.state = {
-        // posts: []
-      posts: [
-    {"userName": "Diona", "title": "More on React", "date": "10/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
-    {"userName": "Aaliyah", "title": "Design Ideas", "date": "09/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
-    {"userName": "Max", "title": "Html and css", "date": "08/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
-    {"userName": "Drew", "title": "Redux", "date": "10/01/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
-    {"userName": "Netsue", "title": "More on JS", "date": "08/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
-    {"userName": "Melley", "title": "More on React", "date": "07/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"}
-    ]}
+        posts: []
+    //   posts: [
+    // {"userName": "Diona", "title": "More on React", "date": "10/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
+    // {"userName": "Aaliyah", "title": "Design Ideas", "date": "09/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
+    // {"userName": "Max", "title": "Html and css", "date": "08/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
+    // {"userName": "Drew", "title": "Redux", "date": "10/01/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
+    // {"userName": "Netsue", "title": "More on JS", "date": "08/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
+    // {"userName": "Melley", "title": "More on React", "date": "07/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"}
+    // ]}
   }
+}
 
-//   componentWillMount () {
-//   axios.get("http://localhost:4000/posts")
-//   .then(response => {
-//     this.setState({
-//       posts: response.data
-//     })
-//   })
-//   .catch((err) => {
-//       console.log(err)
-//     })
-// }
+  componentWillMount () {
+  axios.get("http://localhost:4000/")
+  .then(response => {
+    this.setState({
+      posts: response.data
+    })
+  })
+  .catch((err) => {
+      console.log(err)
+    })
+}
   render() {
     return (
 
@@ -60,7 +61,7 @@ class App extends Component {
                 )}
                 />
 
-                <Route exact path="/show/:userName" render={ (props) => (
+                <Route path="/:_id" render={ (props) => (
 
                     <Show
                       {...props}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 export default class Comments extends Component {
   constructor(props){
@@ -8,8 +9,39 @@ export default class Comments extends Component {
       date: '',
       content: ''
     }
-    // this.handleCreateComment = this.handleCreateComment.bind(this)
+    this.handleCreateComment = this.handleCreateComment.bind(this)
   }
+
+  handleCreateComment (e) {
+    e.preventDefault()
+    const name = e.target.name
+    let newPost = []
+    this.setState ({
+      [name]: e.target.value
+    })
+
+
+  }
+
+//   handleSubmitComment(e) {
+//     e.preventDefault()
+//     axios.post(`http://localhost:4000/show/${this.state.post._id}`, {
+//
+//         name: this.state.name,
+//         title: this.state.title,
+//         content: this.state.content,
+//         date: this.state.date
+//
+//     })
+//     .then((response) => {
+//       this.setState({
+//         posts: response.data
+//       })})
+//     .catch((err) => {
+//       console.log(err)
+//     })
+//
+// }
   render(){
 
     return(
