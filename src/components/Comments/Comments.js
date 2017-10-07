@@ -48,7 +48,6 @@ export default class Comments extends Component {
           <input name="name" type="text" placeholder="name" onChange={this.handleCreateComment} />
           <input name="content" type="text" placeholder="content" onChange={this.handleCreateComment} />
           <button type='submit'>Comment</button>
-          {/* <input className="add btn" type="Submit" value="Comment" /> */}
         </form>
 
       </div>

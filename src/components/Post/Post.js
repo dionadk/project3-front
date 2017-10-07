@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Comments from '../Comments/Comments.js';
+import Tags from '../Tags/Tags.js';
 import {
   Link
 } from "react-router-dom"

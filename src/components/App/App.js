@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Post from '../Post/Post.js';
 import Comments from '../Comments/Comments.js';
+import Tags from '../Tags/Tags.js';
 import Show from '../Show/Show.js';
 import Add from '../Add/Add.js';
 import ReactBootstrap from 'react-bootstrap';

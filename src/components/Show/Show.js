@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Comments from '../Comments/Comments.js';
-import axios from 'axios'
+import Tags from '../Tags/Tags.js';
+import axios from 'axios';
 
 
 export default class Show extends Component {
@@ -11,7 +12,8 @@ export default class Show extends Component {
       let singlePost = props.posts.filter(item => item._id === selectedPost)
       this.state = {
         post: [],
-        comments: []
+        comments: [],
+        tags: []
       }
 
     }
@@ -25,7 +27,11 @@ export default class Show extends Component {
            axios.get(`http://localhost:4000/${selectedPost}/comments`)
                 .then(response => this.setState({comments: response.data}))
                 .catch((err) => console.log(err))
-}
+
+                axios.get(`http://localhost:4000/${selectedPost}/tags`)
+                     .then(response => this.setState({tags: response.data}))
+                     .catch((err) => console.log(err))
+      }
 
 
 
@@ -48,7 +54,16 @@ export default class Show extends Component {
                     return (<li key={comment._id}>{comment.content}</li>)
                   })}
                 </ul>
-              </div>
+            </div>
+            <div>
+              <Tags post={this.state.post}/>
+              <h2>Tags</h2>
+                <ul>
+                  {this.state.tags.map(tag => {
+                    return (<li key={tag._id}>{tag.name}</li>)
+                  })}
+                </ul>
+            </div>
 
 
 
