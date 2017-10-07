@@ -3,6 +3,9 @@ import Post from '../Post/Post.js';
 import Comments from '../Comments/Comments.js';
 import Show from '../Show/Show.js';
 import Add from '../Add/Add.js';
+import ReactBootstrap from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem  } from 'react-bootstrap';
 
 // import './App.css';
 import axios from "axios";
@@ -46,14 +49,34 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <div className="nav">
-            <div className="nav-item"><span className="nav-logo">GA Aha!</span></div>
-            <div className="nav-item"><Link to="/">Posts</Link></div>
-            <div className="nav-item"><Link to="/postCreate">Create a new Post</Link></div>
-          </div>
-          <div className="main">
-            <Switch>
+          <div>
+          <Navbar>
+            <Navbar.Header>
+              <Navbar.Brand>
+                <a href="#">GA Blog</a>
+              </Navbar.Brand>
+            </Navbar.Header>
+            <Nav>
+              <NavItem eventKey={1}><Link to="/">Home</Link></NavItem>
+              <NavItem eventKey={2}><Link to="/">Posts</Link></NavItem>
+              <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+                <MenuItem eventKey={3.1}>WDI</MenuItem>
+                <MenuItem eventKey={3.2}>UI/UX</MenuItem>
+                <MenuItem eventKey={3.3}>Data Science</MenuItem>
+              </NavDropdown>
+            </Nav>
+          </Navbar>
+            <div>
+              <div className="nav-item"><Link to="/postCreate">(+) New Post</Link></div>
+
+            </div>
+            <div className="main">
+              <Switch>
+                <Route exact path="/" render={ () => (
+                <Post posts={this.state.posts} />
+                )}
+              />
+
               <Route exact path="/" render={ () => (
                 <Post
                   posts={this.state.posts}
@@ -75,7 +98,7 @@ class App extends Component {
                 <Show
                   {...props}
                   posts={this.state.posts}
-                /> 
+                />
               )}/>
 
                 <Route
