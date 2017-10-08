@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import './Tags.css'
+
 
 export default class Tags extends Component {
   constructor(props){
@@ -42,11 +44,10 @@ export default class Tags extends Component {
     return(
       <div className="addTag">
 
-        <h2> Tag This Post </h2>
         <form onSubmit={this.handleSubmitTag}>
-          <input name="name" type="text" placeholder="name" onChange={this.handleCreateTag} />
+          <input className="tagInput" name="name" type="text" placeholder="Add a tag" onChange={this.handleCreateTag} />
 
-          <button type='submit'>Tag</button>
+          <button type='submit'>+</button>
         </form>
 
       </div>

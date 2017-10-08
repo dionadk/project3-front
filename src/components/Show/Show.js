@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Comments from '../Comments/Comments.js';
 import Tags from '../Tags/Tags.js';
 import axios from 'axios';
+import ReactBootstrap from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem  } from 'react-bootstrap';
+import './Show.css'
 
 
 export default class Show extends Component {
@@ -17,6 +21,8 @@ export default class Show extends Component {
       }
 
     }
+
+    // saving the newly created posts,comments and tags to posts to the backend
 
     componentDidMount () {
       let selectedPost = this.props.match.params._id
@@ -38,38 +44,48 @@ export default class Show extends Component {
 
   render () {
     return (
-      <div>
-      <h1>Posts</h1>
+      <div className="flexContainer defaultView">
+          <div className="flexSubContainer">
+              <div className="flexRow">
+                <div className="flexColumn">
+                  <label className="headerTitle">
 
-            <p>Name:{this.state.post.name}</p>
-            <p>Title:{this.state.post.title}</p>
-            <p>Content:{this.state.post.content}</p>
-            <p>Date:{this.state.post.createdAt}</p>
+                      <p>{this.state.post.title}</p>
+                  </label>
+                  <label className="headerSubTitle">
+                    <p>By: {this.state.post.name}</p>
+                    <p>On: {this.state.post.createdAt}</p>
+                  </label>
+                </div>
+              </div>
+                  <div className="contentColumn flexRow">
+                    <p>{this.state.post.content}</p>
+                  </div>
 
-            <div>
-              <Comments post={this.state.post}/>
-              <h2>Comments</h2>
-                <ul>
-                  {this.state.comments.map(comment => {
-                    return (<li key={comment._id}>{comment.content}</li>)
-                  })}
-                </ul>
+            <div className="flexRow">
+
+                <div className="commentColumn flexColumn">
+                  <Comments post={this.state.post}/>
+                    <ul>
+                      {this.state.comments.map(comment => {
+                        return (<li key={comment._id}>{comment.content} by: {comment.name}</li>)
+                      })}
+                    </ul>
+                </div>
             </div>
-            <div>
-              <Tags post={this.state.post}/>
-              <h2>Tags</h2>
-                <ul>
-                  {this.state.tags.map(tag => {
-                    return (<li key={tag._id}>{tag.name}</li>)
-                  })}
-                </ul>
-            </div>
+          </div>
 
+          <div className="flexSubContainer">
+            <h4>Tags</h4>
+          <ul>
+            {this.state.tags.map(tag => {
+              return (<li key={tag._id}>{tag.name}</li>)
+            })}
+          </ul>
 
-
-
+        <Tags post={this.state.post}/>
+          </div>
       </div>
     )
-
   }
 }

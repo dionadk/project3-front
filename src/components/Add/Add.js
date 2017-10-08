@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import './Add.css'
+import Tags from '../Tags/Tags';
 import axios from 'axios'
+
+
 
 
 
@@ -39,8 +44,10 @@ export default class Add extends Component {
         name: this.state.name,
         title: this.state.title,
         content: this.state.content,
-    })
-    .catch((err) => {
+    }).then((response)=>{
+      console.log(response)
+      window.location.href= "/" + response.data._id;
+    }).catch((err) => {
       console.log(err)
     })
   }
@@ -48,15 +55,21 @@ export default class Add extends Component {
   render () {
 
     return (
-      <div className="add">
+      <div className="add post-container">
 
-      <h2>Create a new post</h2>
+      <h2>Voice your ideas!!!</h2>
       <form onSubmit={this.handleSubmitPost}>
-        <input name="name" type="text" placeholder="name"  onChange={this.handleCreatePost} />
+        <div className="flexcol">
         <input name="title" type="text" placeholder="title" onChange={this.handleCreatePost} />
-        <input name="content" type="text" placeholder="content" onChange={this.handleCreatePost} />
-        <input className="add-btn" type="submit" value="Create" />
+        <input name="name" type="text" placeholder="name"  onChange={this.handleCreatePost} />
+        <div className="flexrow">
+          <textarea name="content" type="text" placeholder="content" onChange={this.handleCreatePost} />
+          <button className="add-btn" type="submit" value="Create">Create</button>
+      </div>
+      </div>
       </form>
+
+
     </div>
 
 

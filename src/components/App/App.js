@@ -8,7 +8,8 @@ import ReactBootstrap from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem  } from 'react-bootstrap';
 
-// import './App.css';
+
+import '../App/App.css';
 import axios from "axios";
 
 import {
@@ -54,7 +55,7 @@ class App extends Component {
           <Navbar>
             <Navbar.Header>
               <Navbar.Brand>
-                <a href="#">GA Blog</a>
+                <Link to="/">GA Blog</Link>
               </Navbar.Brand>
             </Navbar.Header>
             <Nav>

@@ -1,0 +1,46 @@
+.flexContainer {
+  display: flex;
+}
+
+.flexSubContainer {
+  flex-grow: 2;
+  margin: 30px 0;
+
+}
+.flexRow{
+  display: flex;
+}
+.flexColumn{
+  display: grid;
+}
+.contentColumn{
+    width: 100%;
+    margin-top: 50px;
+    min-height: 450px;
+    margin: 10px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+.commentColumn{
+    margin-top: 50px;
+    min-height: 300px;
+    background-color: #f6f7f9;
+}
+
+.tagTitle {
+  color: red;
+  font-size: 14px;
+  margin: 0 10px;
+
+}
+.headerTitle {
+  color:#3D315B;
+  font-size: 22px;
+  margin: 0 10px;
+}
+
+.headerSubTitle {
+  color: gray;
+  font-size: 10px;
+  margin: 0 10px;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Comments.css'
 import axios from 'axios'
 
 export default class Comments extends Component {
@@ -43,7 +44,7 @@ export default class Comments extends Component {
     return(
       <div className="add">
 
-        <h2> Add Comment To This Post </h2>
+        <h2>Feedbacks</h2>
         <form onSubmit={this.handleSubmitComment}>
           <input name="name" type="text" placeholder="name" onChange={this.handleCreateComment} />
           <input name="content" type="text" placeholder="content" onChange={this.handleCreateComment} />
