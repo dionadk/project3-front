@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Add from '../Add/Add.css'
 
 
 export default class Edit extends Component {
@@ -15,6 +16,7 @@ export default class Edit extends Component {
 
         this.handleUpdatePost = this.handleUpdatePost.bind(this)
         this.handleSubmitPost = this.handleSubmitPost.bind(this)
+        this.handleDeletePost = this.handleDeletePost.bind(this)
     }
 
     componentDidMount () {
@@ -42,6 +44,13 @@ export default class Edit extends Component {
 
     }
 
+    handleDeletePost(e) {
+      e.preventDefault()
+      axios.post(`http://localhost:4000/${this.state.post._id}/deletePost`)
+      // this.props.history.goBack()
+      window.location.href= "/"
+    }
+
 
 
 
@@ -50,13 +59,22 @@ export default class Edit extends Component {
 
 
 
-        <div className="edit">
+        <div className="edit post-container">
 
           <form onSubmit={this.handleSubmitPost}>
-            <input name="name" type="text" value={this.state.post.name}  onChange={this.handleUpdatePost} />
-            <input name="title" type="text" value={this.state.post.title} onChange={this.handleUpdatePost} />
-            <input name="content" type="text" value={this.state.post.content} onChange={this.handleUpdatePost} />
-            <input className="edit-btn" type="submit" value="Update" />
+            <div className="flexcol">
+              <input name="name" type="text" value={this.state.post.name}  onChange={this.handleUpdatePost} />
+              <input name="title" type="text" value={this.state.post.title} onChange={this.handleUpdatePost} />
+            <div className="flexrow">
+              <textarea name="content" type="text" value={this.state.post.content} onChange={this.handleUpdatePost} />
+              <button className="edit-btn" type="submit" value="Update">Update</button>
+
+              <form onSubmit={this.handleDeletePost}>
+                <button className="delete-btn" type="submit" value="Delete">Delete</button>
+              </form>
+
+            </div>
+            </div>
           </form>
         </div>
       )
