@@ -4,6 +4,7 @@ import Comments from '../Comments/Comments.js';
 import Tags from '../Tags/Tags.js';
 import Show from '../Show/Show.js';
 import Add from '../Add/Add.js';
+import Edit from '../Edit/Edit.js';
 import ReactBootstrap from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem  } from 'react-bootstrap';
@@ -79,12 +80,6 @@ class App extends Component {
                 )}
               />
 
-              <Route exact path="/" render={ () => (
-                <Post
-                  posts={this.state.posts}
-                />
-              )}/>
-
               <Route exact path="/postCreate" render={() => (
                 <Add />
               )}/>
@@ -95,12 +90,11 @@ class App extends Component {
                   posts={this.state.posts}
                 />
               )}/>
-
-              <Route exact path="/:_id/comments" render={ (props) => (
-                <Show
-                  {...props}
-                  posts={this.state.posts}
-                />
+              <Route exact path="/:_id/updatePost" render={ (props) => (
+               <Edit
+                {...props}
+                posts={this.state.posts}
+              />
               )}/>
 
                 <Route

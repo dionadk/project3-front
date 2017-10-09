@@ -45,11 +45,15 @@ export default class Comments extends Component {
       <div className="add">
 
         <h2>Feedbacks</h2>
+        <div className="flexContainer">
+        <div className="flexColumn formColumn">
         <form onSubmit={this.handleSubmitComment}>
           <input name="name" type="text" placeholder="name" onChange={this.handleCreateComment} />
           <input name="content" type="text" placeholder="content" onChange={this.handleCreateComment} />
           <button type='submit'>Comment</button>
         </form>
+      </div>
+    </div>
 
       </div>
     )

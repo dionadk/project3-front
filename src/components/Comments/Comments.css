@@ -1,0 +1,10 @@
+.flexContainer {
+  display: flex;
+}
+.flexColumn{
+  display: grid;
+}
+.formColumn{
+  width:230px;
+  margin-left: 10px;
+}

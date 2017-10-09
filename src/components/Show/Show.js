@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Comments from '../Comments/Comments.js';
 import Tags from '../Tags/Tags.js';
+import Edit from '../Edit/Edit.js';
 import axios from 'axios';
-import ReactBootstrap from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem  } from 'react-bootstrap';
-import './Show.css'
+import './Show.css';
+import {
+  Link,
+  Switch
+} from "react-router-dom"
 
 
 export default class Show extends Component {
@@ -22,7 +24,7 @@ export default class Show extends Component {
 
     }
 
-    // saving the newly created posts,comments and tags to posts to the backend
+    // showing the newly created posts,comments and tags to posts to the backend
 
     componentDidMount () {
       let selectedPost = this.props.match.params._id
@@ -51,6 +53,8 @@ export default class Show extends Component {
                   <label className="headerTitle">
 
                       <p>{this.state.post.title}</p>
+                      
+                      <Link to={`/${this.state.post._id}/updatePost`}>(edit)</Link> //link to update post
                   </label>
                   <label className="headerSubTitle">
                     <p>By: {this.state.post.name}</p>
