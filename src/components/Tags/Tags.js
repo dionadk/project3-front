@@ -22,8 +22,6 @@ export default class Tags extends Component {
       [name]: e.target.value,
       post: this.props.post._id
     })
-
-
   }
 
   handleSubmitTag(e) {
@@ -37,19 +35,15 @@ export default class Tags extends Component {
     .catch((err) => {
       console.log(err)
     })
-
-}
+  }
   render(){
 
     return(
       <div className="addTag">
-
         <form onSubmit={this.handleSubmitTag}>
           <input className="tagInput" name="name" type="text" placeholder="Add a tag" onChange={this.handleCreateTag} />
-
           <button type='submit'>+</button>
         </form>
-
       </div>
     )
   }

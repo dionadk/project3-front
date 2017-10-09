@@ -8,8 +8,6 @@ import Edit from '../Edit/Edit.js';
 import ReactBootstrap from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem  } from 'react-bootstrap';
-
-
 import '../App/App.css';
 import axios from "axios";
 
@@ -27,15 +25,7 @@ class App extends Component {
     super (props)
     this.state = {
         posts: []
-    //   posts: [
-    // {"userName": "Diona", "title": "More on React", "date": "10/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
-    // {"userName": "Aaliyah", "title": "Design Ideas", "date": "09/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
-    // {"userName": "Max", "title": "Html and css", "date": "08/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
-    // {"userName": "Drew", "title": "Redux", "date": "10/01/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
-    // {"userName": "Netsue", "title": "More on JS", "date": "08/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"},
-    // {"userName": "Melley", "title": "More on React", "date": "07/05/2017", "content": "The more practice the better you will be. Try youtube tutorials at the begenning to get a deep knowledge"}
-    // ]}
-  }
+    }
 }
 
   componentWillMount () {

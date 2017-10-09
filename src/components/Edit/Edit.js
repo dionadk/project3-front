@@ -47,18 +47,12 @@ export default class Edit extends Component {
     handleDeletePost(e) {
       e.preventDefault()
       axios.post(`http://localhost:4000/${this.state.post._id}/deletePost`)
-      // this.props.history.goBack()
+      // redirects to home page
       window.location.href= "/"
     }
 
-
-
-
     render () {
       return (
-
-
-
         <div className="edit post-container">
 
           <form onSubmit={this.handleSubmitPost}>

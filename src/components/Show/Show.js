@@ -41,9 +41,6 @@ export default class Show extends Component {
                      .catch((err) => console.log(err))
       }
 
-
-
-
   render () {
     return (
       <div className="flexContainer defaultView">
@@ -54,7 +51,7 @@ export default class Show extends Component {
 
                       <p>{this.state.post.title}</p>
 
-                      <Link to={`/${this.state.post._id}/updatePost`}>(edit)</Link> 
+                      <Link to={`/${this.state.post._id}/updatePost`}>(edit)</Link>
                   </label>
                   <label className="headerSubTitle">
                     <p>By: {this.state.post.name}</p>
@@ -62,9 +59,9 @@ export default class Show extends Component {
                   </label>
                 </div>
               </div>
-                  <div className="contentColumn flexRow">
-                    <p>{this.state.post.content}</p>
-                  </div>
+                <div className="contentColumn flexRow">
+                  <p>{this.state.post.content}</p>
+                </div>
 
             <div className="flexRow">
 

@@ -4,10 +4,6 @@ import './Add.css'
 import Tags from '../Tags/Tags';
 import axios from 'axios'
 
-
-
-
-
 export default class Add extends Component {
 
   constructor() {
@@ -29,12 +25,6 @@ export default class Add extends Component {
     this.setState ({
       [name]: e.target.value
     })
-
-    console.log(this.state.name)
-    console.log(this.state.content)
-    console.log(this.state.title)
-
-
   }
 
 
@@ -46,6 +36,7 @@ export default class Add extends Component {
         content: this.state.content,
     }).then((response)=>{
       console.log(response)
+      // after post is created redirects to edit posts page to add a tag to post
       window.location.href= "/" + response.data._id;
     }).catch((err) => {
       console.log(err)
@@ -57,26 +48,22 @@ export default class Add extends Component {
     return (
       <div className="add post-container">
 
-      <h2>Voice your ideas!!!</h2>
-      <form onSubmit={this.handleSubmitPost}>
-        <div className="flexcol">
-        <input name="title" type="text" placeholder="title" onChange={this.handleCreatePost} />
-        <input name="name" type="text" placeholder="name"  onChange={this.handleCreatePost} />
-        <div className="flexrow">
-          <textarea name="content" type="text" placeholder="content" onChange={this.handleCreatePost} />
-          <button className="add-btn" type="submit" value="Create">Create</button>
+        <h2>Voice your ideas!!!</h2>
+        <form onSubmit={this.handleSubmitPost}>
+          <div className="flexcol">
+          <input name="title" type="text" placeholder="title" onChange={this.handleCreatePost} />
+          <input name="name" type="text" placeholder="name"  onChange={this.handleCreatePost} />
+          <div className="flexrow">
+            <textarea name="content" type="text" placeholder="content" onChange={this.handleCreatePost} />
+            <button className="add-btn" type="submit" value="Create">Create</button>
+        </div>
+        </div>
+        </form>
+
       </div>
-      </div>
-      </form>
-
-
-    </div>
-
 
     )
 
-
   }
-
 
 }

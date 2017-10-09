@@ -21,8 +21,6 @@ export default class Comments extends Component {
       [name]: e.target.value,
       post: this.props.post._id
     })
-
-
   }
 
   handleSubmitComment(e) {
