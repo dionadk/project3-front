@@ -1,10 +1,12 @@
 {
+  "homepage": "https://oppnheimer.github.io/project3-front",
   "name": "project3-front",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
+    "gh-pages": "^1.0.0",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^16.0.0",
@@ -14,6 +16,8 @@
     "save": "^2.3.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

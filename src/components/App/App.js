@@ -94,8 +94,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" render={ () => (
                 <Post posts={this.state.posts} />
-                )}
-              />
+                )}/>
 
               <Route exact path="/postCreate" render={() => (
                 <Add />
