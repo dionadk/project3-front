@@ -8,10 +8,11 @@ export default class Edit extends Component {
       let selectedPost = this.props.match.params._id
       console.log(props)
       let singlePost = props.posts.filter(item => item._id === selectedPost)
-      console.log(singlePost)
+      console.log(singlePost.name)
+      console.log(singlePost.0.name)
       this.state = {
         post: singlePost,
-        newName: this.state.post.name,
+        newName: singlePost.name,
         newTitle: this.state.post.title,
         newContent: this.state.post.content
       }
