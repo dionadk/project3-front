@@ -38,7 +38,7 @@ class App extends Component {
       })
   })
 
-  axios.get("http://localhost:4000/")
+  axios.get("https://ga-aha.herokuapp.com/")
   .then(response => {
     this.setState({
       posts: response.data
@@ -93,25 +93,26 @@ class App extends Component {
             <div className="main">
               <Switch>
                 <Route exact path="/" render={ () => (
-                <Post posts={this.state.posts} />
+                 <Post posts={this.state.posts} />
                 )}/>
 
-              <Route exact path="/postCreate" render={() => (
-                <Add />
-              )}/>
+                <Route exact path="/postCreate" render={() => (
+                  <Add />
+                )}/>
 
-              <Route exact path="/:_id" render={ (props) => (
-                <Show
-                  {...props}
-                  posts={this.state.posts}
-                />
-              )}/>
-              <Route exact path="/:_id/updatePost" render={ (props) => (
-               <Edit
-                {...props}
-                posts={this.state.posts}
-              />
-              )}/>
+                <Route exact path="/:_id" render={ (props) => (
+                  <Show
+                    {...props}
+                    posts={this.state.posts}
+                  />
+                )}/>
+
+                <Route exact path="/:_id/updatePost" render={ (props) => (
+                  <Edit
+                    {...props}
+                    posts={this.state.posts}
+                  />
+                )}/>
 
                 <Route
                   path="/*"
