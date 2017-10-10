@@ -27,7 +27,7 @@ export default class Tags extends Component {
   handleSubmitTag(e) {
     e.preventDefault()
 
-    axios.post("http://localhost:4000/createTag", {
+    axios.post("https://ga-aha.herokuapp.com/createTag", {
         name: this.state.name,
         post: this.state.post
     })

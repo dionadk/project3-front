@@ -60,7 +60,7 @@ class App extends Component {
             </Navbar.Header>
             <Nav>
               <NavItem eventKey={1}><Link to="/project3-front">Home</Link></NavItem>
-              <NavItem eventKey={2}><Link to="/">Posts</Link></NavItem>
+              <NavItem eventKey={2}><Link to="/project3-front">Posts</Link></NavItem>
               <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
                 <MenuItem eventKey={3.1}>WDI</MenuItem>
                 <MenuItem eventKey={3.2}>UI/UX</MenuItem>
@@ -96,18 +96,18 @@ class App extends Component {
                  <Post posts={this.state.posts} />
                 )}/>
 
-                <Route exact path="/postCreate" render={() => (
+                <Route exact path="/project3-front/postCreate" render={() => (
                   <Add />
                 )}/>
 
-                <Route exact path="/:_id" render={ (props) => (
+                <Route exact path="/project3-front/:_id" render={ (props) => (
                   <Show
                     {...props}
                     posts={this.state.posts}
                   />
                 )}/>
 
-                <Route exact path="/:_id/updatePost" render={ (props) => (
+                <Route exact path="/project3-front/:_id/updatePost" render={ (props) => (
                   <Edit
                     {...props}
                     posts={this.state.posts}
@@ -116,7 +116,7 @@ class App extends Component {
 
                 <Route
                   path="/*"
-                  render={ () => (<Redirect to="/" />)}
+                  render={ () => (<Redirect to="/project3-front" />)}
                 />
               )}/>
             </Switch>

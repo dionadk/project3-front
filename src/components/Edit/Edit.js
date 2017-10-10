@@ -20,7 +20,7 @@ export default class Edit extends Component {
 
     componentDidMount () {
       let selectedPost = this.props.match.params._id
-      axios.get(`http://localhost:4000/${selectedPost}`)
+      axios.get(`https://ga-aha.herokuapp.com/${selectedPost}`)
            .then(response => this.setState({post: response.data}))
            .catch((err) => console.log(err))
 
@@ -39,13 +39,13 @@ export default class Edit extends Component {
 
     handleSubmitPost(e) {
       e.preventDefault()
-        axios.post(`http://localhost:4000/${this.state.post._id}/updatePost`,{name: this.state.name,title: this.state.title,content: this.state.content})
+        axios.post(`https://ga-aha.herokuapp.com/${this.state.post._id}/updatePost`,{name: this.state.name,title: this.state.title,content: this.state.content})
 
     }
 
     handleDeletePost(e) {
       e.preventDefault()
-      axios.post(`http://localhost:4000/${this.state.post._id}/deletePost`)
+      axios.post(`https://ga-aha.herokuapp.com/${this.state.post._id}/deletePost`)
       // redirects to home page
       window.location.href= "/"
     }

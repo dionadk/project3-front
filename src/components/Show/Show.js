@@ -26,15 +26,15 @@ export default class Show extends Component {
 
     componentDidMount () {
       let selectedPost = this.props.match.params._id
-      axios.get(`http://localhost:4000/${selectedPost}`)
+      axios.get(`https://ga-aha.herokuapp.com/${selectedPost}`)
            .then(response => this.setState({post: response.data}))
            .catch((err) => console.log(err))
 
-           axios.get(`http://localhost:4000/${selectedPost}/comments`)
+           axios.get(`https://ga-aha.herokuapp.com/${selectedPost}/comments`)
                 .then(response => this.setState({comments: response.data}))
                 .catch((err) => console.log(err))
 
-                axios.get(`http://localhost:4000/${selectedPost}/tags`)
+                axios.get(`https://ga-aha.herokuapp.com/${selectedPost}/tags`)
                      .then(response => this.setState({tags: response.data}))
                      .catch((err) => console.log(err))
       }
