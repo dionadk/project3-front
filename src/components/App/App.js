@@ -8,7 +8,8 @@ import Edit from '../Edit/Edit.js';
 import ReactBootstrap from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem  } from 'react-bootstrap';
-import '../App/App.css';
+import './App.css';
+
 import axios from "axios";
 
 import {
@@ -24,11 +25,21 @@ class App extends Component {
   constructor(props) {
     super (props)
     this.state = {
-        posts: []
+        posts: [],
+        weather:"Sunny",
+        temperature: "0"
     }
 }
 
   componentWillMount () {
+  axios.get("http://api.wunderground.com/api/e99e675866a9f62a/conditions/q/DC/Washington.json")
+  .then(response=>{
+      this.setState({
+        weather: response.data.current_observation.icon_url,
+        temperature :response.data.current_observation.temp_f
+      })
+  })
+
   axios.get("http://localhost:4000/")
   .then(response => {
     this.setState({
@@ -59,6 +70,24 @@ class App extends Component {
               </NavDropdown>
             </Nav>
           </Navbar>
+          <div className="image_container"></div>
+
+          <div className="flexrow">
+            <div className="flexcol flexwrap">
+
+            </div>
+              <div className="flexcolfeed">
+                <div className="flexrow">
+                <img className="weatherIcon" src={this.state.weather}/>
+                <div className="flexcol">
+                <label className="weatherInfo">{this.state.temperature}&#176;F</label>
+                <label>Washington, DC</label>
+                </div>
+                </div>
+              </div>
+
+          </div>
+
             <div>
               <div className="nav-item"><Link to="/postCreate">(+) New Post</Link></div>
 

@@ -24,7 +24,7 @@ export default class Show extends Component {
 
     }
 
-    // showing the newly created posts,comments and tags to posts to the backend
+    // fetching the newly created posts,comments and tags
 
     componentDidMount () {
       let selectedPost = this.props.match.params._id

@@ -31,7 +31,9 @@ export default class Comments extends Component {
         content: this.state.content,
         post: this.state.post
     })
-    .then((response => console.log(response)))
+    .then((response)=>{
+       this.props.history.goBack()
+    })
     .catch((err) => {
       console.log(err)
     })

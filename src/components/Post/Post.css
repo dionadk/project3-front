@@ -28,41 +28,39 @@
   to { transform: rotate(360deg); }
 }*/
 
-.image_container {
-  background-image: url("https://imgur.com/5rHSZR8.jpg");
-    height: 270px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /*background-attachment: fixed;*/
+.blogPost{
+  list-style: none;
+  width: 350px;
+  max-width: 350px;
+  min-height: 200px;
+  max-height: 200px;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 5px lightgray;
+  margin: 20px;
+  padding: 10px;
 }
+.blogPost:hover{
+box-shadow: 3px 3px 5px lightgray;
+}
+.blogPost h6{
+  color: gray;
+}
+
+.flexwrap {
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
 .flexcol{
     display: flex;
     -ms-flex-direction: column;
     -webkit-flex-direction: column;
     flex-direction: column;
     height: 100%;
-    width: 70%;
+    width: 100%;
 }
-.flexcolfeed{
-    margin: 10px 0;
-    border-left: 1px solid lightgray;
-      display: flex;
-      -ms-flex-direction: column;
-      -webkit-flex-direction: column;
-      flex-direction: column;
-      height: 100%;
-      width: 30%;
-}
-.weatherIcon{
-  width: 50px;
-  height: 50px;
-}
-.weatherInfo{
-  color: dimgray;
-  font-size: 31px;
-  margin-bottom: -13px;
-}
+
 .flexrow {
     display: flex;
     -ms-flex-direction: row;
