@@ -10,7 +10,7 @@ export default class Edit extends Component {
       let singlePost = props.posts.filter(item => item._id === selectedPost)
       console.log(singlePost)
       this.state = {
-        post: [],
+        post: singlePost,
         newName: this.state.post.name,
         newTitle: this.state.post.title,
         newContent: this.state.post.content
@@ -26,7 +26,6 @@ export default class Edit extends Component {
       axios.get(`https://ga-aha.herokuapp.com/${selectedPost}`)
            .then(response => this.setState({post: response.data}))
            .catch((err) => console.log(err))
-
       }
 
     handleUpdatePost (e) {
