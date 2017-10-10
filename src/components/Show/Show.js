@@ -49,7 +49,7 @@ export default class Show extends Component {
 
                       <p>{this.state.post.title}</p>
 
-                      <Link to={`/${this.state.post._id}/updatePost`}>(edit)</Link>
+                      <Link to={`/project3-front/${this.state.post._id}/updatePost`}>(edit)</Link>
                   </label>
                   <label className="headerSubTitle">
                     <p>By: {this.state.post.name}</p>

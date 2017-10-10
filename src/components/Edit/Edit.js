@@ -47,7 +47,7 @@ export default class Edit extends Component {
       e.preventDefault()
       axios.post(`https://ga-aha.herokuapp.com/${this.state.post._id}/deletePost`)
       // redirects to home page
-      window.location.href= "/"
+      window.location.href= "/project3-front"
     }
 
     render () {

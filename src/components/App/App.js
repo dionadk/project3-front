@@ -87,7 +87,7 @@ class App extends Component {
           </div>
 
             <div>
-              <div className="nav-item"><Link to="/postCreate">(+) New Post</Link></div>
+              <div className="nav-item"><Link to="/project3-front/postCreate">(+) New Post</Link></div>
 
             </div>
             <div className="main">
