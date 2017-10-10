@@ -41,7 +41,14 @@ export default class Edit extends Component {
 
     handleSubmitPost(e) {
       e.preventDefault()
-        axios.post(`https://ga-aha.herokuapp.com/${this.state.post._id}/updatePost`,{name: this.state.newName, title: this.state.newTitle, content: this.state.newContent})
+        axios.post(`https://ga-aha.herokuapp.com/${this.state.post._id}/updatePost`,{
+          name: this.state.newName, 
+          title: this.state.newTitle, 
+          content: this.state.newContent
+        })
+        .then(response => {
+          window.location.href="/project3-front/" + response.data._id
+        }
 
     }
 
