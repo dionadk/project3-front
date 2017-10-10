@@ -9,7 +9,6 @@ export default class Edit extends Component {
       console.log(props)
       let singlePost = props.posts.filter(item => item._id === selectedPost)
       console.log(singlePost.name)
-      console.log(singlePost.0.name)
       this.state = {
         post: singlePost,
         newName: singlePost.name,
