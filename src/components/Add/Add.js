@@ -35,7 +35,7 @@ export default class Add extends Component {
     }).then((response)=>{
       console.log(response)
       // after post is created redirects to edit posts page to add a tag to post
-      window.location.href= "/project3-front" + response.data._id;
+      window.location.href= "/project3-front/" + response.data._id;
     }).catch((err) => {
       console.log(err)
     })
