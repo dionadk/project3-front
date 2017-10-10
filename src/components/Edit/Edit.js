@@ -8,10 +8,14 @@ export default class Edit extends Component {
       let selectedPost = this.props.match.params._id
       console.log(props)
       let singlePost = props.posts.filter(item => item._id === selectedPost)
-      console.log(singlePost)
+      console.log(singlePost[0].name)
       this.state = {
-        post: []
+        post: [],
+        newName: singlePost[0].name,
+        newTitle: singlePost[0].title,
+        newContent: singlePost[0].content
       }
+      console.log(this.props.name)
 
         this.handleUpdatePost = this.handleUpdatePost.bind(this)
         this.handleSubmitPost = this.handleSubmitPost.bind(this)
@@ -39,9 +43,14 @@ export default class Edit extends Component {
 
     handleSubmitPost(e) {
       e.preventDefault()
-        axios.post(`http://localhost:4000/${this.state.post._id}/updatePost`,{name: this.state.name,title: this.state.title,content: this.state.content})
+        axios.post(`http://localhost:4000/${this.state.post._id}/updatePost`,{name: this.state.newName,title: this.state.newTitle,content: this.state.newContent})
+        .then((response)=>{
 
-    }
+          // after post is created redirects to edit posts page to add a tag to post
+          window.location.href= "/" + response.data._id;
+
+    })
+  }
 
     handleDeletePost(e) {
       e.preventDefault()
@@ -56,10 +65,10 @@ export default class Edit extends Component {
 
           <form onSubmit={this.handleSubmitPost}>
             <div className="flexcol">
-              <input name="name" type="text" value={this.state.post.name}  onChange={this.handleUpdatePost} />
-              <input name="title" type="text" value={this.state.post.title} onChange={this.handleUpdatePost} />
+              <input name="newName" type="text" value={this.state.newName}  onChange={this.handleUpdatePost} />
+              <input name="newTitle" type="text" value={this.state.newTitle} onChange={this.handleUpdatePost} />
             <div className="flexrow">
-              <textarea name="content" type="text" value={this.state.post.content} onChange={this.handleUpdatePost} />
+              <textarea name="newContent" type="text" value={this.state.newContent} onChange={this.handleUpdatePost} />
               <button className="edit-btn" type="submit" value="Update">Update</button>
 
               <form onSubmit={this.handleDeletePost}>
