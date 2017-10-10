@@ -59,7 +59,7 @@ class App extends Component {
               </Navbar.Brand>
             </Navbar.Header>
             <Nav>
-              <NavItem eventKey={1}><Link to="/">Home</Link></NavItem>
+              <NavItem eventKey={1}><Link to="/project3-front">Home</Link></NavItem>
               <NavItem eventKey={2}><Link to="/">Posts</Link></NavItem>
               <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
                 <MenuItem eventKey={3.1}>WDI</MenuItem>
@@ -92,7 +92,7 @@ class App extends Component {
             </div>
             <div className="main">
               <Switch>
-                <Route exact path="/" render={ () => (
+                <Route exact path="/project3-front" render={ () => (
                  <Post posts={this.state.posts} />
                 )}/>
 
