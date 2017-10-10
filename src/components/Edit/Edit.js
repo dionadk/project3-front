@@ -12,8 +12,8 @@ export default class Edit extends Component {
       this.state = {
         post: singlePost,
         newName: singlePost[0].name,
-        newTitle: singlePost.title,
-        newContent: singlePost.content
+        newTitle: singlePost[0].title,
+        newContent: singlePost[0].content
       }
 
         this.handleUpdatePost = this.handleUpdatePost.bind(this)
