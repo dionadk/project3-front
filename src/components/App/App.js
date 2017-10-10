@@ -66,10 +66,12 @@ class App extends Component {
                 <MenuItem eventKey={3.2}>UI/UX</MenuItem>
                 <MenuItem eventKey={3.3}>Data Science</MenuItem>
               </NavDropdown>
+              <p>test v1</p>
             </Nav>
           </Navbar>
           <div className="image_container"></div>
 
+              
           <div className="flexrow">
             <div className="flexcol flexwrap">
 
@@ -87,7 +89,6 @@ class App extends Component {
           </div>
 
             <div>
-              <p>test v1</p>
               <div className="nav-item"><Link to="/project3-front/postCreate">(+) New Post</Link></div>
 
             </div>
