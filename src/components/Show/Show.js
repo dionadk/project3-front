@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import Comments from '../Comments/Comments.js';
 import Tags from '../Tags/Tags.js';
-import Edit from '../Edit/Edit.js';
 import axios from 'axios';
 import './Show.css';
 import {
-  Link,
-  Switch
+  Link
 } from "react-router-dom"
 
 

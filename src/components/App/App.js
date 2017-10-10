@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Post from '../Post/Post.js';
-import Comments from '../Comments/Comments.js';
-import Tags from '../Tags/Tags.js';
 import Show from '../Show/Show.js';
 import Add from '../Add/Add.js';
 import Edit from '../Edit/Edit.js';
@@ -78,7 +76,7 @@ class App extends Component {
             </div>
               <div className="flexcolfeed">
                 <div className="flexrow">
-                <img className="weatherIcon" src={this.state.weather}/>
+                <img className="weatherIcon" src={this.state.weather} alt="weather-icon"/>
                 <div className="flexcol">
                 <label className="weatherInfo">{this.state.temperature}&#176;F</label>
                 <label>Washington, DC</label>

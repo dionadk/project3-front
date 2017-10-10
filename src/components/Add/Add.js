@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import './Add.css'
-import Tags from '../Tags/Tags';
 import axios from 'axios'
 
 export default class Add extends Component {
@@ -21,7 +19,7 @@ export default class Add extends Component {
   handleCreatePost (e) {
     e.preventDefault()
     const name = e.target.name
-    let newPost = []
+    // let newPost = []
     this.setState ({
       [name]: e.target.value
     })

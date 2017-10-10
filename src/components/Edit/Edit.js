@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Add from '../Add/Add.css'
 
 
 export default class Edit extends Component {
@@ -31,7 +30,7 @@ export default class Edit extends Component {
       e.preventDefault()
       console.log(e);
       const name = e.target.name
-      let updatePost = []
+      // let updatePost = []
       this.setState ({
         [name]: e.target.value
       })
