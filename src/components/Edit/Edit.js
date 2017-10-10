@@ -48,8 +48,7 @@ export default class Edit extends Component {
         })
         .then(response => {
           window.location.href="/project3-front/" + response.data._id
-        }
-
+        })
     }
 
     handleDeletePost(e) {
