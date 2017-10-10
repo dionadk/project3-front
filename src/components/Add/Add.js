@@ -28,7 +28,7 @@ export default class Add extends Component {
 
   handleSubmitPost(e) {
     e.preventDefault()
-    axios.post("http://localhost:4000/postCreate", {
+    axios.post("https://ga-aha.herokuapp.com/postCreate", {
         name: this.state.name,
         title: this.state.title,
         content: this.state.content,
