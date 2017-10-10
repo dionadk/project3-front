@@ -68,9 +68,9 @@ class App extends Component {
               </NavDropdown>
             </Nav>
           </Navbar>
-          <div className="image_container"></div>
+          {/* <div className="image_container"></div>
 
-          <div className="flexrow">
+          {/* <div className="flexrow">
             <div className="flexcol flexwrap">
 
             </div>
@@ -84,7 +84,7 @@ class App extends Component {
                 </div>
               </div>
 
-          </div>
+          </div> */} */}
 
             <div>
               <div className="nav-item"><Link to="/postCreate">(+) New Post</Link></div>
