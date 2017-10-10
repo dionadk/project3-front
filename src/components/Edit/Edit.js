@@ -10,7 +10,10 @@ export default class Edit extends Component {
       let singlePost = props.posts.filter(item => item._id === selectedPost)
       console.log(singlePost)
       this.state = {
-        post: []
+        post: [],
+        newName: this.state.post.name,
+        newTitle: this.state.post.title,
+        newContent: this.state.post.content
       }
 
         this.handleUpdatePost = this.handleUpdatePost.bind(this)
@@ -39,7 +42,7 @@ export default class Edit extends Component {
 
     handleSubmitPost(e) {
       e.preventDefault()
-        axios.post(`https://ga-aha.herokuapp.com/${this.state.post._id}/updatePost`,{name: this.state.name,title: this.state.title,content: this.state.content})
+        axios.post(`https://ga-aha.herokuapp.com/${this.state.post._id}/updatePost`,{name: this.state.newName, title: this.state.newTitle, content: this.state.newContent})
 
     }
 
@@ -56,10 +59,10 @@ export default class Edit extends Component {
 
           <form onSubmit={this.handleSubmitPost}>
             <div className="flexcol">
-              <input name="name" type="text" value={this.state.post.name}  onChange={this.handleUpdatePost} />
-              <input name="title" type="text" value={this.state.post.title} onChange={this.handleUpdatePost} />
+              <input name="newName" type="text" value={this.state.newName}  onChange={this.handleUpdatePost} />
+              <input name="newTitle" type="text" value={this.state.newTitle} onChange={this.handleUpdatePost} />
             <div className="flexrow">
-              <textarea name="content" type="text" value={this.state.post.content} onChange={this.handleUpdatePost} />
+              <textarea name="newContent" type="text" value={this.state.newContent} onChange={this.handleUpdatePost} />
               <button className="edit-btn" type="submit" value="Update">Update</button>
 
               <form onSubmit={this.handleDeletePost}>

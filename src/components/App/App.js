@@ -66,7 +66,7 @@ class App extends Component {
                 <MenuItem eventKey={3.2}>UI/UX</MenuItem>
                 <MenuItem eventKey={3.3}>Data Science</MenuItem>
               </NavDropdown>
-              <p>test v1</p>
+              <p>test v2</p>
             </Nav>
           </Navbar>
           <div className="image_container"></div>
