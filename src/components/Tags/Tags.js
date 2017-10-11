@@ -31,7 +31,9 @@ export default class Tags extends Component {
         name: this.state.name,
         post: this.state.post
     })
-    .then((response => console.log(response)))
+    .then((response)=>{
+       window.location.href = "/" + response.data.post;
+    })
     .catch((err) => {
       console.log(err)
     })
