@@ -41,50 +41,75 @@ export default class Show extends Component {
 
   render () {
     return (
-      <div className="flexContainer defaultView">
-          <div className="flexSubContainer">
-              <div className="flexRow">
-                <div className="flexColumn">
-                  <label className="headerTitle">
+      <div className='row'>
 
-                      <p>{this.state.post.title}</p>
+        {/* post */}
+        <section className='col s12'>
+          <h3>{this.state.post.title}</h3>
+          <p>By: {this.state.post.name}</p>
+          <p>On: {this.state.post.createdAt}</p>
+]         <p>{this.state.post.content}</p>
+          <Link to={`/${this.state.post._id}/updatePost`}>(edit)</Link>
+        </section>
 
-                      <Link to={`/${this.state.post._id}/updatePost`}>(edit)</Link>
-                  </label>
-                  <label className="headerSubTitle">
-                    <p>By: {this.state.post.name}</p>
-                    <p>On: {this.state.post.createdAt}</p>
-                  </label>
-                </div>
-              </div>
-                <div className="contentColumn flexRow">
-                  <p>{this.state.post.content}</p>
-                </div>
-
-            <div className="flexRow">
-
-                <div className="commentColumn flexColumn">
-                  <Comments post={this.state.post}/>
-                    <ul>
-                      {this.state.comments.map(comment => {
-                        return (<li key={comment._id}>{comment.content} by: {comment.name}</li>)
-                      })}
-                    </ul>
-                </div>
-            </div>
-          </div>
-
-          <div className="flexSubContainer">
-            <h4>Tags</h4>
-          <ul>
-            {this.state.tags.map(tag => {
-              return (<li key={tag._id}>{tag.name}</li>)
-            })}
-          </ul>
-
-        <Tags post={this.state.post}/>
-          </div>
+        {/* comments */}
+        <section className='col s8'>
+          <Comments post={this.state.post}/>
+            <ul>
+              {this.state.comments.map(comment => {
+                return (
+                  <div class='comment'key={comment._id}>
+                    <p>{comment.content}</p>
+                    <h6>by: {comment.name}</h6>
+                  </div>)
+              })}
+            </ul>
+        </section>
+        
+        {/* tags */}
+        <section className='col s4'>
+          <h5 className='center-align'>Tags</h5>
+          {this.state.tags.map(tag => {
+            return (<li key={tag._id}>{tag.name}</li>)
+          })}
+          <Tags post={this.state.post}/>
+        </section>
       </div>
+
+
+
+
+
+
+      // <div className="flexContainer defaultView">
+      //     <div className="flexSubContainer">
+      //         <div className="flexRow">
+      //           <div className="flexColumn">
+      //             <label className="headerTitle">
+
+
+      //             </label>
+      //             <label className="headerSubTitle">
+      //             </label>
+      //           </div>
+      //         </div>
+      //           <div className="contentColumn flexRow">
+      //           </div>
+
+      //       <div className="flexRow">
+
+      //           <div className="commentColumn flexColumn">
+      //           </div>
+      //       </div>
+      //     </div>
+
+      //     <div className="flexSubContainer">
+      //       <h4>Tags</h4>
+      //     <ul>
+      //     </ul>
+
+      //     </div>
+      // </div>
     )
   }
 }

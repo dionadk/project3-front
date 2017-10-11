@@ -28,13 +28,23 @@
   to { transform: rotate(360deg); }
 }*/
 
-.image_container {
-  background-image: url("https://imgur.com/5rHSZR8.jpg");
-    height: 270px;
+.header {
+  background-image: url("./images/ga-headerimage.jpg");
+    height: 40vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     /*background-attachment: fixed;*/
+}
+
+.navbar{
+  position: fixed;
+  top: 0;
+}
+
+.header h1 {
+  padding: 10vh 10vw 2vh 10vw;
+  font-size: 150px;
 }
 .flexcol{
     display: flex;
