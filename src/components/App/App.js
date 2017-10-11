@@ -31,7 +31,7 @@ class App extends Component {
 }
 
   componentWillMount () {
-  axios.get("http://api.wunderground.com/api/e99e675866a9f62a/conditions/q/DC/Washington.json")
+  axios.get("https://api.wunderground.com/api/e99e675866a9f62a/conditions/q/DC/Washington.json")
   .then(response=>{
       this.setState({
         weather: response.data.current_observation.icon_url,
@@ -74,7 +74,7 @@ class App extends Component {
               <h1 className='red-text'>Aha!</h1>
               <h4 className='white-text'>Share your aha moments at GA</h4>
             </div>
-            
+
             {/* posts */}
             <section className='col s9'>
               <Switch>
@@ -128,7 +128,7 @@ class App extends Component {
                 </div>
               </div>
 
-            </section>         
+            </section>
           </div>
         </Router>
       </div>
