@@ -42,7 +42,7 @@ render () {
                 <Link to={`/${post._id}`}>
                   <div className="blogPost col s12" key={post._id}>
                     <h3>{post.title}</h3>
-                    <p> {post.createdAt} </p>
+                    <p> {post.createdAt.slice(0, 10)} </p>
                     <h6 className='col s12'>
                       {post.content}
                     </h6>
