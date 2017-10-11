@@ -3,7 +3,6 @@ import Post from '../Post/Post.js';
 import Show from '../Show/Show.js';
 import Add from '../Add/Add.js';
 import Edit from '../Edit/Edit.js';
-import Search from '../Search/Search.js';
 import Tags from '../Tags/Tags.js';
 import ReactBootstrap from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
@@ -165,9 +164,6 @@ handleSearchTag (e) {
               />
               )}/>
 
-              <Route exact path="/tags/:searchTag" render={ (props) => (
-               <Search />
-              )}/>
 
                 <Route
                   path="/*"
