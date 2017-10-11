@@ -53,6 +53,9 @@
   -ms-filter: blur(5px);
   filter: blur(5px);*/
 }
+.searchTag {
+  display: inline;
+}
 .white-text{
   font-weight: bold;
   text-align: center;

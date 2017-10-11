@@ -108,6 +108,11 @@ class App extends Component {
                 </div>
                 {/* search */}
 
+                <form className="col s4 offset-s2 purple searchTag" onSubmit={(e) => this.handleSearchSubmit(e)}>
+                      <input className="col s6" onChange={(e) => this.handleSearchTag(e)}/>
+                      <input className="col s6 red" type="submit" value="Search"/>
+                </form>
+
               </nav>
 
               <div className='background-image'>
@@ -117,14 +122,7 @@ class App extends Component {
 
 
             </div>
-            <div className="image_container">
 
-                  <form onSubmit={(e) => this.handleSearchSubmit(e)}>
-                        <input onChange={(e) => this.handleSearchTag(e)}/>
-                        <input type="submit" value="Search"/>
-                  </form>
-
-            </div>
 
             {/* posts */}
             <section className='col s9'>
