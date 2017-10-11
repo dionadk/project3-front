@@ -49,6 +49,43 @@ class App extends Component {
       console.log(err)
     })
 }
+
+  handleSearchTag (e) {
+    //let inputTag = this.props.match.params.searchTag
+    this.setState ({
+      searchTag: e.target.value
+
+    })
+
+  }
+
+  handleSearchSubmit (e) {
+    console.log(this.state.posts)
+    e.preventDefault ()
+    //var result=[]
+      axios.get(`http://localhost:4000/tags/${this.state.searchTag}`)
+      .then(response => {
+      // console.log(response.data);
+        this.setState({
+          tags:response.data
+        })
+        var filtered=[];
+
+        for (var i = 0; i < response.data.length; i++) {
+            filtered.push(this.state.posts.filter((e) => e._id === response.data[i].post));
+           }
+
+          let newFiltered = [].concat.apply([], filtered)
+
+           console.log(filtered)
+           console.log(newFiltered)
+
+           this.setState({
+             posts:newFiltered
+           })
+      })
+    }
+
   render() {
     return (
       <div>
@@ -69,6 +106,8 @@ class App extends Component {
                 <div className='col s2 red'>
                   <Link to="/postCreate">(+) New Post</Link>
                 </div>
+                {/* search */}
+
               </nav>
 
               <div className='background-image'>
@@ -76,6 +115,14 @@ class App extends Component {
               <h4 className='white-text'>Share your Aha! moments at GA</h4>
              </div>
 
+
+            </div>
+            <div className="image_container">
+
+                  <form onSubmit={(e) => this.handleSearchSubmit(e)}>
+                        <input onChange={(e) => this.handleSearchTag(e)}/>
+                        <input type="submit" value="Search"/>
+                  </form>
 
             </div>
 
