@@ -27,7 +27,7 @@ export default class Show extends Component {
 
     componentDidMount () {
       let selectedPost = this.props.match.params._id
-      axios.get(`http://localhost:4000/${selectedPost}`)
+      axios.get(`https://ga-aha.herokuapp.com/${selectedPost}`)
            .then(response => this.setState({
              post: response.data
             }))
@@ -38,11 +38,11 @@ export default class Show extends Component {
              console.log(this.state.created) 
            })
 
-      axios.get(`http://localhost:4000/${selectedPost}/comments`)
+      axios.get(`https://ga-aha.herokuapp.com/${selectedPost}/comments`)
         .then(response => this.setState({comments: response.data}))
         .catch((err) => console.log(err))
 
-      axios.get(`http://localhost:4000/${selectedPost}/tags`)
+      axios.get(`https://ga-aha.herokuapp.com/${selectedPost}/tags`)
         .then(response => this.setState({tags: response.data}))
         .catch((err) => console.log(err))
     }
@@ -58,7 +58,7 @@ export default class Show extends Component {
           <p>By: {this.state.post.name}</p>
           <p>Created On: {this.state.created}</p>
 ]         <p>{this.state.post.content}</p>
-          <Link to={`/${this.state.post._id}/updatePost`}>(edit)</Link>
+          <Link to={`/project3-front/${this.state.post._id}/updatePost`}>(edit)</Link>
         </section>
 
         {/* comments */}
@@ -84,41 +84,6 @@ export default class Show extends Component {
           <Tags post={this.state.post}/>
         </section>
       </div>
-
-
-
-
-
-
-      // <div className="flexContainer defaultView">
-      //     <div className="flexSubContainer">
-      //         <div className="flexRow">
-      //           <div className="flexColumn">
-      //             <label className="headerTitle">
-
-
-      //             </label>
-      //             <label className="headerSubTitle">
-      //             </label>
-      //           </div>
-      //         </div>
-      //           <div className="contentColumn flexRow">
-      //           </div>
-
-      //       <div className="flexRow">
-
-      //           <div className="commentColumn flexColumn">
-      //           </div>
-      //       </div>
-      //     </div>
-
-      //     <div className="flexSubContainer">
-      //       <h4>Tags</h4>
-      //     <ul>
-      //     </ul>
-
-      //     </div>
-      // </div>
     )
   }
 }

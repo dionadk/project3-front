@@ -63,7 +63,7 @@ class App extends Component {
     console.log(this.state.posts)
     e.preventDefault ()
     //var result=[]
-      axios.get(`http://localhost:4000/tags/${this.state.searchTag}`)
+    axios.get(`https://ga-aha.herokuapp.com/tags/${this.state.searchTag}`)
       .then(response => {
       // console.log(response.data);
         this.setState({
@@ -99,12 +99,12 @@ class App extends Component {
 
                 {/* logo and home link */}
                 <div className='col s1 red center-align'>
-                  <Link to="/">GA Blog</Link>
+                  <Link to="/project3-front">GA Blog</Link>
                 </div>
 
                 {/* create new post */}
                 <div className='col s2 red'>
-                  <Link to="/postCreate">(+) New Post</Link>
+                  <Link to="project3-front/postCreate">(+) New Post</Link>
                 </div>
                 {/* search */}
 
@@ -129,17 +129,17 @@ class App extends Component {
               <Switch>
 
                 {/* home page */}
-                <Route exact path="/" render={() => (
+                <Route exact path="/project3-front" render={() => (
                   <Post posts={this.state.posts} />
                 )} />
 
                 {/* create post */}
-                <Route exact path="/postCreate" render={() => (
+                <Route exact path="/project3-front/postCreate" render={() => (
                   <Add />
                 )} />
 
                 {/* show single post */}
-                <Route exact path="/:_id" render={(props) => (
+                <Route exact path="/project3-front/:_id" render={(props) => (
                   <Show
                     {...props}
                     posts={this.state.posts}
@@ -147,7 +147,7 @@ class App extends Component {
                 )} />
 
                 {/* edit post */}
-                <Route exact path="/:_id/updatePost" render={(props) => (
+                <Route exact path="/project3-front/:_id/updatePost" render={(props) => (
                   <Edit
                     {...props}
                     posts={this.state.posts}
@@ -157,7 +157,7 @@ class App extends Component {
                 {/* redirect to homepage */}
                 <Route
                   path="/*"
-                  render={() => (<Redirect to="/" />)}
+                  render={() => (<Redirect to="/project3-front" />)}
                 />
                 )}/>
               </Switch>

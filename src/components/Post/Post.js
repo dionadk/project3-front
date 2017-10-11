@@ -39,7 +39,7 @@ render () {
           <div className='row'>
           {sortedPosts.map( post => {
               return (
-                <Link to={`/${post._id}`}>
+                <Link to={`/project3-front/${post._id}`}>
                   <div className="blogPost col s12" key={post._id}>
                     <h3>{post.title}</h3>
                     <p> {post.createdAt.slice(0, 10)} </p>

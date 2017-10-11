@@ -32,7 +32,7 @@ export default class Comments extends Component {
         post: this.state.post
     })
     .then((response)=>{
-       window.location.href = "/" + response.data.post;
+       window.location.href = "/project3-front/" + response.data.post;
     })
     .catch((err) => {
       console.log(err)

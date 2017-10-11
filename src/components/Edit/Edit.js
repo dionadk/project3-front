@@ -42,12 +42,11 @@ export default class Edit extends Component {
 
     handleSubmitPost(e) {
       e.preventDefault()
-        axios.post(`http://localhost:4000/${this.state.post._id}/updatePost`,{name: this.state.newName,title: this.state.newTitle,content: this.state.newContent})
+      axios.post(`https://ga-aha.herokuapp.com/${this.state.post._id}/updatePost`,{name: this.state.newName,title: this.state.newTitle,content: this.state.newContent})
         .then((response)=>{
 
           // after post is created redirects to edit posts page to add a tag to post
-          window.location.href= "/" + response.data._id;
-
+          window.location.href= "/project3-front" + response.data._id;
     })
   }
 
