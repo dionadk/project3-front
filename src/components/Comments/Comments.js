@@ -32,7 +32,7 @@ export default class Comments extends Component {
         post: this.state.post
     })
     .then((response)=>{
-       this.props.history.goBack()
+       window.location.href = "/" + response.data.post;
     })
     .catch((err) => {
       console.log(err)
@@ -49,7 +49,7 @@ export default class Comments extends Component {
         <div className="flexColumn formColumn">
         <form onSubmit={this.handleSubmitComment}>
           <input name="name" type="text" placeholder="name" onChange={this.handleCreateComment} />
-          <input name="content" type="text" placeholder="content" onChange={this.handleCreateComment} />
+          <textarea name="content" type="text" placeholder="content" onChange={this.handleCreateComment} />
           <button type='submit'>Comment</button>
         </form>
       </div>

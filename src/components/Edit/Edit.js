@@ -8,13 +8,14 @@ export default class Edit extends Component {
       let selectedPost = this.props.match.params._id
       console.log(props)
       let singlePost = props.posts.filter(item => item._id === selectedPost)
-      console.log(singlePost[0])
+      console.log(singlePost[0].name)
       this.state = {
-        post: singlePost,
+        post: [],
         newName: singlePost[0].name,
         newTitle: singlePost[0].title,
         newContent: singlePost[0].content
       }
+      console.log(this.props.name)
 
         this.handleUpdatePost = this.handleUpdatePost.bind(this)
         this.handleSubmitPost = this.handleSubmitPost.bind(this)
@@ -41,15 +42,14 @@ export default class Edit extends Component {
 
     handleSubmitPost(e) {
       e.preventDefault()
-        axios.post(`https://ga-aha.herokuapp.com/${this.state.post._id}/updatePost`,{
-          name: this.state.newName, 
-          title: this.state.newTitle, 
-          content: this.state.newContent
-        })
-        .then(response => {
-          window.location.href="/project3-front/" + response.data._id
-        })
-    }
+        axios.post(`http://localhost:4000/${this.state.post._id}/updatePost`,{name: this.state.newName,title: this.state.newTitle,content: this.state.newContent})
+        .then((response)=>{
+
+          // after post is created redirects to edit posts page to add a tag to post
+          window.location.href= "/" + response.data._id;
+
+    })
+  }
 
     handleDeletePost(e) {
       e.preventDefault()

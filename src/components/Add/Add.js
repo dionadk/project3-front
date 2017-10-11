@@ -46,16 +46,17 @@ export default class Add extends Component {
     return (
       <div className="add post-container">
 
-        <h2>Voice your ideas!!!</h2>
+        <h2>create a post</h2>
+
         <form onSubmit={this.handleSubmitPost}>
           <div className="flexcol">
-          <input name="title" type="text" placeholder="title" onChange={this.handleCreatePost} />
-          <input name="name" type="text" placeholder="name"  onChange={this.handleCreatePost} />
-          <div className="flexrow">
-            <textarea name="content" type="text" placeholder="content" onChange={this.handleCreatePost} />
-            <button className="add-btn" type="submit" value="Create">Create</button>
-        </div>
-        </div>
+            <input name="title" type="text" placeholder="title" onChange={this.handleCreatePost} />
+            <input name="name" type="text" placeholder="name"  onChange={this.handleCreatePost} />
+            <div className="flexrow">
+              <textarea name="content" type="text" placeholder="content" onChange={this.handleCreatePost} />
+              <button className="add-btn" type="submit" value="Create">Create</button>
+            </div>
+          </div>
         </form>
 
       </div>

@@ -3,8 +3,9 @@ import Post from '../Post/Post.js';
 import Show from '../Show/Show.js';
 import Add from '../Add/Add.js';
 import Edit from '../Edit/Edit.js';
-import ReactBootstrap from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
+// import Materialize from 'materialize-css'
+// import ReactBootstrap from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem  } from 'react-bootstrap';
 import './App.css';
 
@@ -26,11 +27,11 @@ class App extends Component {
         posts: [],
         weather:"Sunny",
         temperature: "0"
-    }
+  }
 }
 
   componentWillMount () {
-  axios.get("http://api.wunderground.com/api/e99e675866a9f62a/conditions/q/DC/Washington.json")
+  axios.get("https://api.wunderground.com/api/e99e675866a9f62a/conditions/q/DC/Washington.json")
   .then(response=>{
       this.setState({
         weather: response.data.current_observation.icon_url,
@@ -48,83 +49,138 @@ class App extends Component {
       console.log(err)
     })
 }
+
+  handleSearchTag (e) {
+    //let inputTag = this.props.match.params.searchTag
+    this.setState ({
+      searchTag: e.target.value
+
+    })
+
+  }
+
+  handleSearchSubmit (e) {
+    console.log(this.state.posts)
+    e.preventDefault ()
+    //var result=[]
+      axios.get(`http://localhost:4000/tags/${this.state.searchTag}`)
+      .then(response => {
+      // console.log(response.data);
+        this.setState({
+          tags:response.data
+        })
+        var filtered=[];
+
+        for (var i = 0; i < response.data.length; i++) {
+            filtered.push(this.state.posts.filter((e) => e._id === response.data[i].post));
+           }
+
+          let newFiltered = [].concat.apply([], filtered)
+
+           console.log(filtered)
+           console.log(newFiltered)
+
+           this.setState({
+             posts:newFiltered
+           })
+      })
+    }
+
   render() {
     return (
-      <Router>
-          <div>
-          <Navbar>
-            <Navbar.Header>
-              <Navbar.Brand>
-                <Link to="/">GA Blog</Link>
-              </Navbar.Brand>
-            </Navbar.Header>
-            <Nav>
-              <NavItem eventKey={1}><Link to="/project3-front">Home</Link></NavItem>
-              <NavItem eventKey={2}><Link to="/project3-front">Posts</Link></NavItem>
-              <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                <MenuItem eventKey={3.1}>WDI</MenuItem>
-                <MenuItem eventKey={3.2}>UI/UX</MenuItem>
-                <MenuItem eventKey={3.3}>Data Science</MenuItem>
-              </NavDropdown>
-              <p>test v7</p>
-            </Nav>
-          </Navbar>
-          <div className="image_container"></div>
+      <div>
+        <Router>
+          <div className='row'>
+            {/* header */}
+            <div className="header">
 
-              
-          <div className="flexrow">
-            <div className="flexcol flexwrap">
+              {/* nav bar */}
+              <nav className='navbar row black center-align'>
+
+                {/* logo and home link */}
+                <div className='col s1 red center-align'>
+                  <Link to="/">GA Blog</Link>
+                </div>
+
+                {/* create new post */}
+                <div className='col s2 red'>
+                  <Link to="/postCreate">(+) New Post</Link>
+                </div>
+                {/* search */}
+
+                <form className="col s4 offset-s2 purple searchTag" onSubmit={(e) => this.handleSearchSubmit(e)}>
+                      <input className="col s6" onChange={(e) => this.handleSearchTag(e)}/>
+                      <input className="col s6 red" type="submit" value="Search"/>
+                </form>
+
+              </nav>
+
+              <div className='background-image'>
+              <h1 className='red-text'>Aha!</h1>
+              <h4 className='white-text'>Share your Aha! moments at GA</h4>
+             </div>
+
 
             </div>
-              <div className="flexcolfeed">
-                <div className="flexrow">
-                <img className="weatherIcon" src={this.state.weather} alt="weather-icon"/>
-                <div className="flexcol">
-                <label className="weatherInfo">{this.state.temperature}&#176;F</label>
-                <label>Washington, DC</label>
-                </div>
-                </div>
-              </div>
 
-          </div>
 
-            <div>
-              <div className="nav-item"><Link to="/project3-front/postCreate">(+) New Post</Link></div>
-
-            </div>
-            <div className="main">
+            {/* posts */}
+            <section className='col s9'>
               <Switch>
-                <Route exact path="/project3-front" render={ () => (
-                 <Post posts={this.state.posts} />
-                )}/>
 
-                <Route exact path="/project3-front/postCreate" render={() => (
+                {/* home page */}
+                <Route exact path="/" render={() => (
+                  <Post posts={this.state.posts} />
+                )} />
+
+                {/* create post */}
+                <Route exact path="/postCreate" render={() => (
                   <Add />
-                )}/>
+                )} />
 
-                <Route exact path="/project3-front/:_id" render={ (props) => (
+                {/* show single post */}
+                <Route exact path="/:_id" render={(props) => (
                   <Show
                     {...props}
                     posts={this.state.posts}
                   />
-                )}/>
+                )} />
 
-                <Route exact path="/project3-front/:_id/updatePost" render={ (props) => (
+                {/* edit post */}
+                <Route exact path="/:_id/updatePost" render={(props) => (
                   <Edit
                     {...props}
                     posts={this.state.posts}
                   />
-                )}/>
+                )} />
 
+                {/* redirect to homepage */}
                 <Route
                   path="/*"
-                  render={ () => (<Redirect to="/project3-front" />)}
+                  render={() => (<Redirect to="/" />)}
                 />
-              )}/>
-            </Switch>
+                )}/>
+              </Switch>
+            </section>
+
+            {/* side nav */}
+            <section className='col s3'>
+
+              {/* local weather */}
+              <div className="flexcolfeed">
+                <div className="flexrow">
+                  <img className="weatherIcon" src={this.state.weather} alt="weather-icon"/>
+                  <div className="flexcol">
+                    <label className="weatherInfo">{this.state.temperature}&#176;F</label>
+                    <label>Washington, DC</label>
+                  </div>
+                </div>
+              </div>
+
+            </section>
           </div>
-        </div>
-      </Router>
+        </Router>
+      </div>
     );
   }
 }

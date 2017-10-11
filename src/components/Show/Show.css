@@ -1,3 +1,13 @@
+.comment {
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 5px lightgray;
+  text-decoration: none;
+  color: black;
+  margin: 5px 10px !important;
+  padding: 10px !important;
+}
+
+
 .flexContainer {
   display: flex;
 }
