@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Search from '../Search/Search'
 import './Post.css'
 import {
   Link
@@ -16,6 +17,7 @@ export default class Post extends Component {
   render () {
     return (
         <div>
+          <Search />
           <h2>Posts</h2>
             <div className="flexrow flexwrap">
               {this.props.posts.map(post => {

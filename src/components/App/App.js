@@ -3,6 +3,8 @@ import Post from '../Post/Post.js';
 import Show from '../Show/Show.js';
 import Add from '../Add/Add.js';
 import Edit from '../Edit/Edit.js';
+import Search from '../Search/Search.js';
+import Tags from '../Tags/Tags.js';
 import ReactBootstrap from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem  } from 'react-bootstrap';
@@ -25,7 +27,8 @@ class App extends Component {
     this.state = {
         posts: [],
         weather:"Sunny",
-        temperature: "0"
+        temperature: "0",
+        searchTag: null
     }
 }
 
@@ -48,6 +51,39 @@ class App extends Component {
       console.log(err)
     })
 }
+
+
+
+handleSearchTag (e) {
+  //let inputTag = this.props.match.params.searchTag
+  this.setState ({
+    searchTag: e.target.value
+
+  })
+//this.handleSearchSubmit();
+}
+
+  handleSearchSubmit (e) {
+    e.preventDefault (e)
+    //var result=[]
+      axios.get(`http://localhost:4000/tags/${this.state.searchTag}`)
+      .then(response => {
+      console.log(response.data);
+        this.setState({
+          tags:response.data
+        })
+        var filtered=[];
+        this.setState({
+          posts:[]
+        })
+        for (var i = 0; i < response.data.length; i++) {
+            filtered.push(this.state.posts.filter((e) => e._id === response.data[i].post));
+           }console.log(filtered);
+           this.setState({
+             posts:filtered
+           })
+      })
+  }
   render() {
     return (
       <Router>
@@ -68,7 +104,16 @@ class App extends Component {
               </NavDropdown>
             </Nav>
           </Navbar>
-          <div className="image_container"></div>
+          <div className="image_container">
+            <div>
+                <form onSubmit={(e) => this.handleSearchSubmit(e)}>
+                {/* <label>search</label> */}
+                <input onChange={(e) => this.handleSearchTag(e)}/>
+
+                <input type="submit" value="Search"/>
+            </form>
+            </div>
+          </div>
 
           <div className="flexrow">
             <div className="flexcol flexwrap">
@@ -112,6 +157,10 @@ class App extends Component {
                 {...props}
                 posts={this.state.posts}
               />
+              )}/>
+
+              <Route exact path="/tags/:searchTag" render={ (props) => (
+               <Search />
               )}/>
 
                 <Route
