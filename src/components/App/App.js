@@ -106,6 +106,11 @@ class App extends Component {
                 <div className='col s2 red'>
                   <Link to="project3-front/postCreate">(+) New Post</Link>
                 </div>
+
+                <div className='col s2 orange'>
+                  <p>version6</p>
+                </div>
+                
                 {/* search */}
                 <div className="col s4 offset-s5 black searchTag">
                 <form onSubmit={(e) => this.handleSearchSubmit(e)}>
