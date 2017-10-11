@@ -31,7 +31,7 @@ class App extends Component {
 }
 
   componentWillMount () {
-  axios.get("http://api.wunderground.com/api/e99e675866a9f62a/conditions/q/DC/Washington.json")
+  axios.get("https://api.wunderground.com/api/e99e675866a9f62a/conditions/q/DC/Washington.json")
   .then(response=>{
       this.setState({
         weather: response.data.current_observation.icon_url,
@@ -49,6 +49,43 @@ class App extends Component {
       console.log(err)
     })
 }
+
+  handleSearchTag (e) {
+    //let inputTag = this.props.match.params.searchTag
+    this.setState ({
+      searchTag: e.target.value
+
+    })
+
+  }
+
+  handleSearchSubmit (e) {
+    console.log(this.state.posts)
+    e.preventDefault ()
+    //var result=[]
+      axios.get(`http://localhost:4000/tags/${this.state.searchTag}`)
+      .then(response => {
+      // console.log(response.data);
+        this.setState({
+          tags:response.data
+        })
+        var filtered=[];
+
+        for (var i = 0; i < response.data.length; i++) {
+            filtered.push(this.state.posts.filter((e) => e._id === response.data[i].post));
+           }
+
+          let newFiltered = [].concat.apply([], filtered)
+
+           console.log(filtered)
+           console.log(newFiltered)
+
+           this.setState({
+             posts:newFiltered
+           })
+      })
+    }
+
   render() {
     return (
       <div>
@@ -69,12 +106,24 @@ class App extends Component {
                 <div className='col s2 red'>
                   <Link to="/postCreate">(+) New Post</Link>
                 </div>
+                {/* search */}
+
+                <form className="col s4 offset-s2 purple searchTag" onSubmit={(e) => this.handleSearchSubmit(e)}>
+                      <input className="col s6" onChange={(e) => this.handleSearchTag(e)}/>
+                      <input className="col s6 red" type="submit" value="Search"/>
+                </form>
+
               </nav>
 
+              <div className='background-image'>
               <h1 className='red-text'>Aha!</h1>
-              <h4 className='white-text'>Share your aha moments at GA</h4>
+              <h4 className='white-text'>Share your Aha! moments at GA</h4>
+             </div>
+
+
             </div>
-            
+
+
             {/* posts */}
             <section className='col s9'>
               <Switch>
@@ -128,7 +177,7 @@ class App extends Component {
                 </div>
               </div>
 
-            </section>         
+            </section>
           </div>
         </Router>
       </div>
