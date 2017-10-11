@@ -30,7 +30,7 @@ class App extends Component {
 }
 
   componentWillMount () {
-  axios.get("http://api.wunderground.com/api/e99e675866a9f62a/conditions/q/DC/Washington.json")
+  axios.get("https://api.wunderground.com/api/e99e675866a9f62a/conditions/q/DC/Washington.json")
   .then(response=>{
       this.setState({
         weather: response.data.current_observation.icon_url,
