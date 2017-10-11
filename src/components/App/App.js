@@ -27,7 +27,7 @@ class App extends Component {
         posts: [],
         weather:"Sunny",
         temperature: "0"
-    }
+  }
 }
 
   componentWillMount () {
