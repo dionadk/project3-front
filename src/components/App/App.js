@@ -108,9 +108,9 @@ class App extends Component {
                 </div>
                 {/* search */}
 
-                <form className="col s4 offset-s2 purple searchTag" onSubmit={(e) => this.handleSearchSubmit(e)}>
-                      <input className="col s6" onChange={(e) => this.handleSearchTag(e)}/>
-                      <input className="col s6 red" type="submit" value="Search"/>
+                <form className="col s4 offset-s2 red searchTag" value="search" onSubmit={(e) => this.handleSearchSubmit(e)}>
+                      <input className="col-s6" onChange={(e) => this.handleSearchTag(e)}/>
+                      {/* <input className="col s6 red" type="submit" value="Search"/> */}
                 </form>
 
               </nav>
