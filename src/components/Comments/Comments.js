@@ -32,7 +32,7 @@ export default class Comments extends Component {
         post: this.state.post
     })
     .then((response)=>{
-       this.props.history.goBack()
+       window.location.href = `/${this.props.post._id}`
     })
     .catch((err) => {
       console.log(err)

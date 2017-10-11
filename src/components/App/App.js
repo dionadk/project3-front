@@ -64,25 +64,31 @@ handleSearchTag (e) {
 }
 
   handleSearchSubmit (e) {
-    e.preventDefault (e)
+    console.log(this.state.posts)
+    e.preventDefault ()
     //var result=[]
       axios.get(`http://localhost:4000/tags/${this.state.searchTag}`)
       .then(response => {
-      console.log(response.data);
+      // console.log(response.data);
         this.setState({
           tags:response.data
         })
         var filtered=[];
-        this.setState({
-          posts:[]
-        })
+
         for (var i = 0; i < response.data.length; i++) {
             filtered.push(this.state.posts.filter((e) => e._id === response.data[i].post));
-           }console.log(filtered);
+           }
+
+          let newFiltered = [].concat.apply([], filtered)
+
+           console.log(filtered)
+           console.log(newFiltered)
+
            this.setState({
-             posts:filtered
+             posts:newFiltered
            })
       })
+
   }
   render() {
     return (

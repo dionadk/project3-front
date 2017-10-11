@@ -14,12 +14,16 @@ export default class Post extends Component {
 
 }
 
+
   render () {
     return (
+
         <div>
-          <Search />
+
           <h2>Posts</h2>
+
             <div className="flexrow flexwrap">
+
               {this.props.posts.map(post => {
                 return (<div className="blogPost flexcol" key={post._id}>
                   <h3>{post.title}</h3>
