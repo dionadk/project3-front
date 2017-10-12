@@ -110,7 +110,7 @@ class App extends Component {
                 <div className="col s4 offset-s5 black searchTag">
                 <form onSubmit={(e) => this.handleSearchSubmit(e)}>
                       <input className="col s6 black" onChange={(e) => this.handleSearchTag(e)}/>
-                      {/* <button className="col s4 red" type="submit">Search</button> */}
+                      <button className="col s4 red" type="submit">Search</button>
                 </form>
               </div>
 
