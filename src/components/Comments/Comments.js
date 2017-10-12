@@ -42,7 +42,7 @@ export default class Comments extends Component {
 
     return(
       <div className="add">
-      <h5>Feedbacks</h5>
+      <h5>Feedback</h5>
       <div className="flexContainer">
         <div className="flexColumn formColumn">
         <form onSubmit={this.handleSubmitComment}>
