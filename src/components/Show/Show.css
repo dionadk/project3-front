@@ -17,6 +17,20 @@
   margin: 30px 0;
 
 }
+.tagHeader{
+    background-color: red;
+    padding: 3px 10px;
+    border-radius: 17px;
+    width: 75px;
+    height: 32px;
+    color: #FFF;
+}
+.tagList{
+    color: gray;
+    list-style: none;
+    margin-top: 27px;
+    margin-left: 15px;
+}
 .flexRow{
   display: flex;
 }

@@ -30,11 +30,8 @@ render () {
   }
   // new variable for sorted posts
   let sortedPosts = posts.sort(compare)
-
-
-
     return (
-        <div>
+        <div className='clearSpace'>
           <h2>Posts</h2>
           <div className='row'>
           {sortedPosts.map( post => {
@@ -54,5 +51,4 @@ render () {
         </div>
         )
       }
-
 }

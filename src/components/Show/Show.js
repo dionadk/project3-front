@@ -35,7 +35,7 @@ export default class Show extends Component {
 
            .then(() => {
              this.setState({created: this.state.post.createdAt.slice(0, 10)})
-             console.log(this.state.created) 
+             console.log(this.state.created)
            })
 
       axios.get(`http://localhost:4000/${selectedPost}/comments`)
@@ -46,7 +46,7 @@ export default class Show extends Component {
         .then(response => this.setState({tags: response.data}))
         .catch((err) => console.log(err))
     }
-    
+
 
   render () {
     return (
@@ -54,11 +54,18 @@ export default class Show extends Component {
 
         {/* post */}
         <section className='col s12'>
-          <h3>{this.state.post.title}</h3>
+          <div className="flexrow">
+            <h4>{this.state.post.title}</h4>
+
+            {this.state.tags.map(tag => {
+              return (<li className="tagList" key={tag._id}>{tag.name}</li>)
+            })}
+          </div>
+          <Link to={`/${this.state.post._id}/updatePost`}>(edit)</Link>
           <p>By: {this.state.post.name}</p>
           <p>Created On: {this.state.created}</p>
-]         <p>{this.state.post.content}</p>
-          <Link to={`/${this.state.post._id}/updatePost`}>(edit)</Link>
+          <p>{this.state.post.content}</p>
+
         </section>
 
         {/* comments */}
@@ -67,58 +74,20 @@ export default class Show extends Component {
             <ul>
               {this.state.comments.map(comment => {
                 return (
-                  <div class='comment'key={comment._id}>
+                  <div className='comment'key={comment._id}>
                     <p>{comment.content}</p>
                     <h6>by: {comment.name}</h6>
                   </div>)
               })}
             </ul>
         </section>
-        
+
         {/* tags */}
         <section className='col s4'>
-          <h5 className='center-align'>Tags</h5>
-          {this.state.tags.map(tag => {
-            return (<li key={tag._id}>{tag.name}</li>)
-          })}
           <Tags post={this.state.post}/>
         </section>
       </div>
 
-
-
-
-
-
-      // <div className="flexContainer defaultView">
-      //     <div className="flexSubContainer">
-      //         <div className="flexRow">
-      //           <div className="flexColumn">
-      //             <label className="headerTitle">
-
-
-      //             </label>
-      //             <label className="headerSubTitle">
-      //             </label>
-      //           </div>
-      //         </div>
-      //           <div className="contentColumn flexRow">
-      //           </div>
-
-      //       <div className="flexRow">
-
-      //           <div className="commentColumn flexColumn">
-      //           </div>
-      //       </div>
-      //     </div>
-
-      //     <div className="flexSubContainer">
-      //       <h4>Tags</h4>
-      //     <ul>
-      //     </ul>
-
-      //     </div>
-      // </div>
     )
   }
 }
