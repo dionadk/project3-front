@@ -1,25 +1,78 @@
 import React, { Component } from 'react'
+import axios from "axios";
+
 import './Post.css'
 import {
   Link
 } from "react-router-dom"
 
 export default class Post extends Component {
-  constructor(props) {
-  super(props)
-  this.state = {
-    // posts: this.props.posts
+    constructor(props) {
+    super(props)
+    // this.props.handleSearchSubmit(e)
+    // this.props.handleSearchTag(e)
+    this.state = {
+      posts: [],
+      searchTag: null,
+      tags: [],
+      searchTag: '',
+      searchedPosts: null,
+      searched: false
+    }
   }
 
-}
+  handleSearchTag(e) {
+    this.setState({
+      searchTag: e.target.value,
+      searched: false
+    })
+  }
 
-
-render () {
+  handleSearchSubmit(e) {
+    e.preventDefault()
+    if (this.state.searchTag) {
+      //var result=[]
+      axios.get(`https://ga-aha.herokuapp.com/tags/${this.state.searchTag}`)
+        .then(response => {
+          this.setState({
+            tags: response.data
+          })
+          var filtered = [];
+          
+  
+          for (var i = 0; i < response.data.length; i++) {
+            filtered.push(this.props.posts.filter((e) => e._id === response.data[i].post));
+          }
+        
+          //  storing the results to an empty array (from an array within an array)
+          let newFiltered = [].concat.apply([], filtered)
+  
+          this.setState({
+            searchedPosts: newFiltered,
+            searched: true
+          })
+        })
+    }
+  }
+  render () {
 
   // sorts posts newest to oldest
-  let posts = []
-  this.props.posts.forEach(post => {posts.push(post)})
+  
+  let displayedPosts = []
+  if (this.state.searched) {
+    displayedPosts = []
+    console.log('searched')
+    this.state.searchedPosts.forEach(post => {displayedPosts.push(post)})
+    console.log(displayedPosts)
 
+  } else {
+    displayedPosts = []
+    console.log('notsearched')
+    this.props.posts.forEach(post => {displayedPosts.push(post)})
+    console.log(displayedPosts)
+  }
+  
+  
   // compares posts for .sort
   function compare(a, b) {
     if (a.createdAt > b.createdAt)
@@ -28,11 +81,23 @@ render () {
       return 1;
     return 0;
   }
+  
+
   // new variable for sorted posts
-  let sortedPosts = posts.sort(compare)
+  let sortedPosts = displayedPosts.sort(compare)
     return (
         <div className='clearSpace'>
-          <h2 className="postHeader">Latest Aha Moments</h2>
+          <div className='row'>
+            <h2 className="postHeader col s6">Latest Aha Moments</h2>
+
+            {/* search */}
+            <div className="col s6 searchTag">
+              <form onSubmit={(e) => this.handleSearchSubmit(e)}>
+                <input className="col s6" onChange={(e) => this.handleSearchTag(e)} />
+                <button className="col s5 red" type="submit">Filter Moments</button>
+              </form>
+            </div>
+          </div>
           <div className='row'>
           {sortedPosts.map( post => {
               return (

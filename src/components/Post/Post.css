@@ -42,6 +42,10 @@
   overflow-y: auto;
 
 }
+
+.searchTag {
+  margin-top: 50px;
+}
 .blogPost:hover{
 box-shadow: 3px 3px 5px lightgray;
 color: red;

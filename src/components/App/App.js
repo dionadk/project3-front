@@ -39,8 +39,10 @@ class App extends Component {
         weather:"Sunny",
         temperature: "0",
         date: date
+    }
+    // this.handleSearchTag = this.handleSearchTag.bind(this)
+    // this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
   }
-}
 
   componentWillMount () {
     axios.get("https://api.wunderground.com/api/e99e675866a9f62a/conditions/q/DC/Washington.json")
@@ -62,37 +64,7 @@ class App extends Component {
     })
 } 
 
-  handleSearchTag (e) {
-    this.setState ({
-    searchTag: e.target.value
-    })
-  }
-
-  handleSearchSubmit (e) {
-    console.log(this.state.posts)
-    e.preventDefault ()
-    //var result=[]
-    axios.get(`https://ga-aha.herokuapp.com/tags/${this.state.searchTag}`)
-      .then(response => {
-        this.setState({
-          tags:response.data
-        })
-        var filtered=[];
-
-        for (var i = 0; i < response.data.length; i++) {
-            filtered.push(this.state.posts.filter((e) => e._id === response.data[i].post));
-           }
-          //  storing the results to an empty array (from an array within an array)
-          let newFiltered = [].concat.apply([], filtered)
-
-           console.log(filtered)
-           console.log(newFiltered)
-
-           this.setState({
-             posts:newFiltered
-           })
-      })
-    }
+  
 
   render() {
     return (
@@ -115,13 +87,8 @@ class App extends Component {
                   <div className='col s2 red'>
                     <Link to="/project3-front/postCreate">(+) New Aha</Link>
                   </div>
-                  {/* search */}
-                  <div className="col s4 offset-s5 black searchTag">
-                  <form onSubmit={(e) => this.handleSearchSubmit(e)}>
-                        <input className="col s6" onChange={(e) => this.handleSearchTag(e)}/>
-                        <button className="col s4 red" type="submit">Search</button>
-                  </form>
-                  </div>
+
+                  
                 </nav>
                 <Switch>
                   {/* display large photo header on homepage */}
@@ -140,10 +107,14 @@ class App extends Component {
             {/* posts */}
             <section className='col s9 mainSection'>
               <Switch>
-
+                
                 {/* home page */}
                 <Route exact path="/project3-front" render={() => (
-                  <Post posts={this.state.posts} />
+                  <Post 
+                    posts={this.state.posts}
+                    handleSearchSubmit={this.handleSearchSubmit}
+                    handleSearchTag={this.handleSearchTag}
+                     />
                 )} />
 
                 {/* create post */}
