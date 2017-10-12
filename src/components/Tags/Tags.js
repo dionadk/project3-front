@@ -7,7 +7,6 @@ export default class Tags extends Component {
     super(props)
     this.state = {
       name: ''
-
     }
     this.handleCreateTag = this.handleCreateTag.bind(this)
     this.handleSubmitTag = this.handleSubmitTag.bind(this)
@@ -38,7 +37,6 @@ export default class Tags extends Component {
     })
   }
   render(){
-
     return(
       <div className="addTag">
         <form onSubmit={this.handleSubmitTag}>
