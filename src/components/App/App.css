@@ -87,6 +87,9 @@ h1.red-text{
 }
 .eventStyle {
   margin-left: 20px;
+  margin-top: 50px;
+  margin-bottom: -20px;
+  font-weight: bolder;
 }
 .currDate {
   min-height: 150px;
