@@ -30,9 +30,6 @@ render () {
   }
   // new variable for sorted posts
   let sortedPosts = posts.sort(compare)
-
-
-
     return (
         <div>
           <h2>Posts</h2>
@@ -54,5 +51,4 @@ render () {
         </div>
         )
       }
-
 }

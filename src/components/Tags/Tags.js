@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import './Tags.css'
 
-
 export default class Tags extends Component {
   constructor(props){
     super(props)
