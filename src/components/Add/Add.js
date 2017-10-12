@@ -25,7 +25,6 @@ export default class Add extends Component {
     })
   }
 
-
   handleSubmitPost(e) {
     e.preventDefault()
     axios.post("http://localhost:4000/postCreate", {
@@ -45,9 +44,7 @@ export default class Add extends Component {
 
     return (
       <div className="add post-container">
-
-        <h2>create a post</h2>
-
+        <h4>Share your Moments</h4>
         <form onSubmit={this.handleSubmitPost}>
           <div className="flexcol">
             <input name="title" type="text" placeholder="title" onChange={this.handleCreatePost} />
@@ -58,7 +55,6 @@ export default class Add extends Component {
             </div>
           </div>
         </form>
-
       </div>
 
     )

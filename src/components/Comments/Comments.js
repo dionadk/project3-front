@@ -37,24 +37,21 @@ export default class Comments extends Component {
     .catch((err) => {
       console.log(err)
     })
-
 }
   render(){
 
     return(
       <div className="add">
-
-        <h2>Feedbacks</h2>
-        <div className="flexContainer">
+      <h5>Feedbacks</h5>
+      <div className="flexContainer">
         <div className="flexColumn formColumn">
         <form onSubmit={this.handleSubmitComment}>
           <input name="name" type="text" placeholder="name" onChange={this.handleCreateComment} />
           <textarea name="content" type="text" placeholder="content" onChange={this.handleCreateComment} />
           <button type='submit'>Comment</button>
         </form>
+        </div>
       </div>
-    </div>
-
       </div>
     )
   }
