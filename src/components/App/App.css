@@ -1,3 +1,5 @@
+
+
 <link href="https://fonts.googleapis.com/css?family=Vast+Shadow" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
@@ -84,7 +86,6 @@ h1.red-text{
   margin-bottom: -13px;
 }
 .eventStyle {
-  font-family: 'Faster One', cursive;
   margin-left: 20px;
 }
 .currDate {
@@ -93,7 +94,7 @@ h1.red-text{
   font-size: 20px;
   border: 1px solid lightgray;
   box-shadow: 1px 1px 5px lightgray;
-  font-family: 'Vast Shadow', cursive;
+
 }
 .flexrow {
     display: flex;
