@@ -3,6 +3,7 @@ import Post from '../Post/Post.js';
 import Show from '../Show/Show.js';
 import Add from '../Add/Add.js';
 import Edit from '../Edit/Edit.js';
+import LargeHeader from '../LargeHeader/LargeHeader.js';
 // import Materialize from 'materialize-css'
 // import ReactBootstrap from 'react-bootstrap';
 // import { Button } from 'react-bootstrap';
@@ -90,6 +91,7 @@ class App extends Component {
     return (
       <div>
         <Router>
+          <div>
           <div className='row'>
             {/* header */}
             <div className="header">
@@ -114,74 +116,75 @@ class App extends Component {
                 </form>
 
               </nav>
-
-              <div className='background-image'>
-              <h1 className='red-text'>Aha!</h1>
-              <h4 className='white-text'>Share your Aha! moments at GA</h4>
-             </div>
-
-
-            </div>
-
-
-            {/* posts */}
-            <section className='col s9'>
               <Switch>
-
-                {/* home page */}
-                <Route exact path="/" render={() => (
-                  <Post posts={this.state.posts} />
+                {/* display large photo header on homepage */}
+                <Route exact path='/' render={() => (
+                  <LargeHeader />
                 )} />
-
-                {/* create post */}
-                <Route exact path="/postCreate" render={() => (
-                  <Add />
+                <Route path='/*' render={() => (
+                  <div className='spaceFill'></div>
                 )} />
-
-                {/* show single post */}
-                <Route exact path="/:_id" render={(props) => (
-                  <Show
-                    {...props}
-                    posts={this.state.posts}
-                  />
-                )} />
-
-                {/* edit post */}
-                <Route exact path="/:_id/updatePost" render={(props) => (
-                  <Edit
-                    {...props}
-                    posts={this.state.posts}
-                  />
-                )} />
-
-                {/* redirect to homepage */}
-                <Route
-                  path="/*"
-                  render={() => (<Redirect to="/" />)}
-                />
-                )}/>
               </Switch>
-            </section>
+            </div>
+          </div>
 
-            {/* side nav */}
-            <section className='col s3'>
+          {/* posts */}
+          <section className='col s9'>
+            <Switch>
 
-              {/* local weather */}
-              <div className="flexcolfeed">
-                <div className="flexrow">
-                  <img className="weatherIcon" src={this.state.weather} alt="weather-icon"/>
-                  <div className="flexcol">
-                    <label className="weatherInfo">{this.state.temperature}&#176;F</label>
-                    <label>Washington, DC</label>
-                  </div>
+              {/* home page */}
+              <Route exact path="/" render={() => (
+                <Post posts={this.state.posts} />
+              )} />
+
+              {/* create post */}
+              <Route exact path="/postCreate" render={() => (
+                <Add />
+              )} />
+
+              {/* show single post */}
+              <Route exact path="/:_id" render={(props) => (
+                <Show
+                  {...props}
+                  posts={this.state.posts}
+                />
+              )} />
+
+              {/* edit post */}
+              <Route exact path="/:_id/updatePost" render={(props) => (
+                <Edit
+                  {...props}
+                  posts={this.state.posts}
+                />
+              )} />
+
+              {/* redirect to homepage */}
+              <Route
+                path="/*" render={() => (<Redirect to="/" />)}
+              />
+              )}/>
+            </Switch>
+          </section>
+
+          {/* side nav */}
+          <section className='col s3'>
+
+            {/* local weather */}
+            <div className="flexcolfeed">
+              <div className="flexrow">
+                <img className="weatherIcon" src={this.state.weather} alt="weather-icon"/>
+                <div className="flexcol">
+                  <label className="weatherInfo">{this.state.temperature}&#176;F</label>
+                  <label>Washington, DC</label>
                 </div>
               </div>
+            </div>
 
-            </section>
+          </section>
           </div>
         </Router>
       </div>
-    );
+    )
   }
 }
 

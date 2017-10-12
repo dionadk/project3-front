@@ -27,7 +27,10 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }*/
-
+.spaceFill {
+  background-color: orange;
+  height: 50vh;
+}
 .header {
     /*background-image: url("./images/ga-headerimage.jpg");
     height: 40vh;
