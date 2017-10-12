@@ -46,7 +46,7 @@ export default class Edit extends Component {
         .then((response)=>{
 
           // after post is created redirects to edit posts page to add a tag to post
-          window.location.href= "/project3-front" + response.data._id;
+          window.location.href= "/project3-front/" + response.data._id;
     })
   }
 

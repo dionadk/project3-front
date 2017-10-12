@@ -99,7 +99,7 @@ class App extends Component {
 
                 {/* logo and home link */}
                 <div className='col s1 red center-align'>
-                  <Link to="/project3-front">GA Blog</Link>
+                  <Link to="/project3-front">GA Blog v7</Link>
                 </div>
 
                 {/* create new post */}
@@ -107,10 +107,9 @@ class App extends Component {
                   <Link to="project3-front/postCreate">(+) New Post</Link>
                 </div>
 
-                <div className='col s2 orange'>
-                  <p>version6</p>
-                </div>
+        
                 
+
                 {/* search */}
                 <div className="col s4 offset-s5 black searchTag">
                 <form onSubmit={(e) => this.handleSearchSubmit(e)}>
