@@ -108,7 +108,7 @@ class App extends Component {
 
                   {/* logo and home link */}
                   <div className='col s1 red center-align'>
-                    <Link to="/">GA Blog</Link>
+                    <Link to="/">GA Blog v8</Link>
                   </div>
 
                   {/* create new post */}
