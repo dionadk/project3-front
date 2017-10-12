@@ -5,17 +5,7 @@
 <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Kumar+One+Outline|Pacifico" rel="stylesheet">
 .header {
-    /*background-image: url("./images/ga-headerimage.jpg");
-    height: 40vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;*/
-    /*-webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);*/
-    /*filter: blur(5px);*/
-    /*background-attachment: fixed;*/
+
 }
 .background-image{
   background-image: url('./images/Project3 Pic.jpg');
@@ -23,12 +13,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /*-webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);*/
 }
+
 button {
   height: 64px;
 }

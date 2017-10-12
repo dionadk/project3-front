@@ -16,24 +16,25 @@ export default class Add extends Component {
       this.handleSubmitPost = this.handleSubmitPost.bind(this)
   }
 
+  // sets state with form values
   handleCreatePost (e) {
     e.preventDefault()
     const name = e.target.name
-    // let newPost = []
     this.setState ({
       [name]: e.target.value
     })
   }
 
+  // on submit: creates post
   handleSubmitPost(e) {
     e.preventDefault()
+    // create new post in the database
     axios.post("https://ga-aha.herokuapp.com/postCreate", {
         name: this.state.name,
         title: this.state.title,
         content: this.state.content,
     }).then((response)=>{
-      console.log(response)
-      // after post is created redirects to edit posts page to add a tag to post
+      // redirects to edit posts page
       window.location.href= "/project3-front/" + response.data._id;
     }).catch((err) => {
       console.log(err)
@@ -45,6 +46,8 @@ export default class Add extends Component {
     return (
       <div className="add post-container">
         <h4>Share your Moments</h4>
+
+        {/* new post form */}
         <form onSubmit={this.handleSubmitPost}>
           <div className="flexcol">
             <input name="title" type="text" placeholder="title" onChange={this.handleCreatePost} />
@@ -56,9 +59,6 @@ export default class Add extends Component {
           </div>
         </form>
       </div>
-
     )
-
   }
-
 }
