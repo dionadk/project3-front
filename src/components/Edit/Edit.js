@@ -61,7 +61,7 @@ export default class Edit extends Component {
 
     render () {
       return (
-        <div className="edit post-container">
+        <div className="edit post-container ">
 
           <form onSubmit={this.handleSubmitPost}>
             <div className="flexcol">
@@ -81,8 +81,5 @@ export default class Edit extends Component {
         </div>
       )
     }
-
-
-
 
 }

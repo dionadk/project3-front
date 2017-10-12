@@ -31,8 +31,8 @@ render () {
   // new variable for sorted posts
   let sortedPosts = posts.sort(compare)
     return (
-        <div>
-          <h2 className="postHeader">Latest Aha Moments!!!!</h2>
+        <div className='clearSpace'>
+          <h2 className="postHeader">Latest Aha Moments</h2>
           <div className='row'>
           {sortedPosts.map( post => {
               return (

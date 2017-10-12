@@ -102,3 +102,7 @@ h1.red-text{
     -webkit-flex-direction: row;
     flex-direction: row;
 }
+
+.mainSection {
+  margin: 8vh 0 0 0;
+}

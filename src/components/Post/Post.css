@@ -27,8 +27,10 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }*/
-/*<link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">*/
-/*<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">*/
+
+.clearSpace {
+  margin-top: -8vh;
+}
 .blogPost{
   border: 1px solid lightgray;
   box-shadow: 1px 1px 5px lightgray;
@@ -50,6 +52,7 @@ color: red;
 
 .postHeader {
   margin-left: 20px;
+  margin-top: 90px;
 }
 
 /*h2 {
