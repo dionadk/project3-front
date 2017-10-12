@@ -1,22 +1,22 @@
-GA-Aha (WDI Project 3)
+# GA-Aha (WDI Project 3)
 
 Ga-Aha is a blog designed for General Assembly students to share their 'aha' moments. It was built in four days using ReactJS as our front-end library, Express to build the back-end and Mongoose for our database. We also used MaterializeCSS to streamline styling.
 
-Our Team
+### Our Team
 -Diona Kurien (dionadk)
 -Max Oppenheimer (OppNHeimer)
 -Aaliyah Melton (AaliyahMe123)
 -Drew Dandrea (ddandrea00)
 
-Our MVP goals:
+###Our MVP goals:
 -Users can view, create, edit, and delete posts.
 -Users can comment on posts
 
-Our Silver goals:
+### Our Silver goals:
 -Users can tag posts
 -Users can filter posts by tags
 
-Our Gold goals:
+### Our Gold goals:
 -Users can login using GitHub
 -Users can filter posts by GA cohort
 -Users can check local weather at GA
@@ -24,9 +24,9 @@ Our Gold goals:
 
 We achieved all MVP, silver goals, and most gold goals with the exception of GitHub user authentication and current GA events.
 
-Team member contributions
+## Team member contributions
 
-Diona
+### Diona
   -front-end CRUD functionality for posts, comments, and tags
   -styling
   -back-end routing for posts(edit and delete) 
@@ -34,19 +34,19 @@ Diona
   -tag search feature
   -deployment
 
-Aaliyah
+### Aaliyah
   -front-end create functionality for comments.
   -lead on design and styling
   -generating seed data for deployed site
 
-Drew
+### Drew
   -back-end setup
   -database seeding 
   -back-end routing for posts(create and view)
   -back-end routing for comments(create and view)
   -styling
 
-Max
+### Max
   -back-end setup
   -database seeding
   -back-end routing for posts(create and view)
