@@ -1,5 +1,9 @@
 
 
+<link href="https://fonts.googleapis.com/css?family=Vast+Shadow" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Kumar+One+Outline|Pacifico" rel="stylesheet">
 .header {
     /*background-image: url("./images/ga-headerimage.jpg");
     height: 40vh;
@@ -32,11 +36,17 @@ button {
   display: inline;
 }
 .white-text{
+
   font-weight: bold;
   text-align: center;
+  margin-top: -40px;
+  margin-left: 500px;
+  font-family: 'Pacifico', cursive;
+  /*font-family: 'Faster One', cursive;*/
 }
-.red-text{
+h1.red-text{
   text-align: center;
+  font-family: 'Faster One', cursive;
 }
 
 .navbar{
@@ -46,6 +56,7 @@ button {
 .header h1 {
   padding: 10vh 10vw 2vh 10vw;
   font-size: 150px;
+  font-family: 'Faster One', cursive;
 }
 .flexcol{
     display: flex;
@@ -74,9 +85,27 @@ button {
   font-size: 31px;
   margin-bottom: -13px;
 }
+.eventStyle {
+  margin-left: 20px;
+  margin-top: 50px;
+  margin-bottom: -20px;
+  font-weight: bolder;
+}
+.currDate {
+  min-height: 150px;
+  margin: 40px 20px;
+  font-size: 20px;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 5px lightgray;
+
+}
 .flexrow {
     display: flex;
     -ms-flex-direction: row;
     -webkit-flex-direction: row;
     flex-direction: row;
+}
+
+.mainSection {
+  margin: 8vh 0 0 0;
 }

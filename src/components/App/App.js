@@ -3,10 +3,9 @@ import Post from '../Post/Post.js';
 import Show from '../Show/Show.js';
 import Add from '../Add/Add.js';
 import Edit from '../Edit/Edit.js';
+import LargeHeader from '../LargeHeader/LargeHeader.js';
 // import Materialize from 'materialize-css'
-// import ReactBootstrap from 'react-bootstrap';
-// import { Button } from 'react-bootstrap';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem  } from 'react-bootstrap';
+// import { Navbar, Nav, NavItem, NavDropdown, MenuItem  } from 'react-bootstrap';
 import './App.css';
 
 import axios from "axios";
@@ -23,20 +22,41 @@ import {
 class App extends Component {
   constructor(props) {
     super (props)
+    // current date
+    var today = new Date()
+    // converting the date format to month and date
+    var m_names = new Array("Jan", "Feb", "Mar",
+    "Apr", "May", "Jun", "Jul", "Aug", "Sep",
+    "Oct", "Nov", "Dec");
+
+    var d = new Date();
+    var curr_date = d.getDate();
+    var curr_month = d.getMonth();
+    var curr_year = d.getFullYear();
+    var date =  m_names[curr_month] + ' ' + curr_date;
     this.state = {
         posts: [],
         weather:"Sunny",
-        temperature: "0"
+        temperature: "0",
+        date: date
   }
 }
 
   componentWillMount () {
-  axios.get("https://api.wunderground.com/api/e99e675866a9f62a/conditions/q/DC/Washington.json")
-  .then(response=>{
+    axios.get("https://api.wunderground.com/api/e99e675866a9f62a/conditions/q/DC/Washington.json")
+    .then(response=>{
+        this.setState({
+          weather: response.data.current_observation.icon_url,
+          temperature :response.data.current_observation.temp_f
+        })
+    })
+
+    axios.get("http://localhost:4000/")
+    .then(response => {
       this.setState({
-        weather: response.data.current_observation.icon_url,
-        temperature :response.data.current_observation.temp_f
+      posts: response.data,
       })
+<<<<<<< HEAD
   })
 
   axios.get("https://ga-aha.herokuapp.com/")
@@ -47,25 +67,30 @@ class App extends Component {
   })
   .catch((err) => {
       console.log(err)
+=======
+>>>>>>> teamWork
     })
-}
+    .catch((err) => {
+        console.log(err)
+      })
+  }
 
   handleSearchTag (e) {
-    //let inputTag = this.props.match.params.searchTag
     this.setState ({
-      searchTag: e.target.value
-
+    searchTag: e.target.value
     })
-
   }
 
   handleSearchSubmit (e) {
     console.log(this.state.posts)
     e.preventDefault ()
+<<<<<<< HEAD
     //var result=[]
     axios.get(`https://ga-aha.herokuapp.com/tags/${this.state.searchTag}`)
+=======
+      axios.get(`http://localhost:4000/tags/${this.state.searchTag}`)
+>>>>>>> teamWork
       .then(response => {
-      // console.log(response.data);
         this.setState({
           tags:response.data
         })
@@ -74,7 +99,7 @@ class App extends Component {
         for (var i = 0; i < response.data.length; i++) {
             filtered.push(this.state.posts.filter((e) => e._id === response.data[i].post));
            }
-
+          //  storing the results to an empty array (from an array within an array)
           let newFiltered = [].concat.apply([], filtered)
 
            console.log(filtered)
@@ -91,46 +116,46 @@ class App extends Component {
       <div>
         <Router>
           <div className='row'>
-            {/* header */}
-            <div className="header">
+            <div>
+              {/* header */}
+              <div className="header">
 
-              {/* nav bar */}
-              <nav className='navbar row black center-align'>
+                {/* nav bar */}
+                <nav className='navbar row black center-align'>
 
-                {/* logo and home link */}
-                <div className='col s1 red center-align'>
-                  <Link to="/project3-front">GA Blog v7</Link>
-                </div>
+                  {/* logo and home link */}
+                  <div className='col s1 red center-align'>
+                    <Link to="/">GA Blog</Link>
+                  </div>
 
-                {/* create new post */}
-                <div className='col s2 red'>
-                  <Link to="project3-front/postCreate">(+) New Post</Link>
-                </div>
+                  {/* create new post */}
+                  <div className='col s2 red'>
+                    <Link to="/postCreate">(+) New Post</Link>
+                  </div>
+                  {/* search */}
+                  <div className="col s4 offset-s5 black searchTag">
+                  <form onSubmit={(e) => this.handleSearchSubmit(e)}>
+                        <input className="col s6" onChange={(e) => this.handleSearchTag(e)}/>
+                        <button className="col s4 red" type="submit">Search</button>
+                  </form>
+                  </div>
+                </nav>
+                <Switch>
+                  {/* display large photo header on homepage */}
+                  <Route exact path='/' render={() => (
+                    <LargeHeader />
+                  )} />
+                  {/* <Route path='/*' render={() => (
 
-        
-                
+                      <div className='red'></div>
 
-                {/* search */}
-                <div className="col s4 offset-s5 black searchTag">
-                <form onSubmit={(e) => this.handleSearchSubmit(e)}>
-                      <input className="col s6" onChange={(e) => this.handleSearchTag(e)}/>
-                      <button className="col s4 red" type="submit">Search</button>
-                </form>
+                  )} /> */}
+                </Switch>
               </div>
-
-              </nav>
-
-              <div className='background-image'>
-              <h1 className='red-text'>Aha!</h1>
-              <h4 className='white-text'>Share your Aha! moments at GA</h4>
-             </div>
-
-
             </div>
 
-
             {/* posts */}
-            <section className='col s9'>
+            <section className='col s9 mainSection'>
               <Switch>
 
                 {/* home page */}
@@ -161,16 +186,14 @@ class App extends Component {
 
                 {/* redirect to homepage */}
                 <Route
-                  path="/*"
-                  render={() => (<Redirect to="/project3-front" />)}
+                  path="/*" render={() => (<Redirect to="/" />)}
                 />
-                )}/>
+                  )}/>
               </Switch>
             </section>
 
             {/* side nav */}
-            <section className='col s3'>
-
+            <section className='col s3 mainSection'>
               {/* local weather */}
               <div className="flexcolfeed">
                 <div className="flexrow">
@@ -182,11 +205,25 @@ class App extends Component {
                 </div>
               </div>
 
+              {/* Upcoming Events */}
+                <div className="row">
+                  <h5 className="eventStyle">Upcoming Events</h5>
+                </div>
+                <div className="row currDate">
+                    <h4>{this.state.date}</h4>
+                    <p>Tech and Advertising with Twitter</p>
+                    <p>Digital Marketing info Session</p>
+                </div>
+                <div className="row currDate">
+                    <p>Adobe Indesign Bootcamp</p>
+                    <p>SQL Bootcamp</p>
+                    <p>Intro to R</p>
+                </div>
             </section>
           </div>
         </Router>
       </div>
-    );
+    )
   }
 }
 

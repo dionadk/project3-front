@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Comments from '../Comments/Comments.js';
 import Tags from '../Tags/Tags.js';
+
 import axios from 'axios';
 import './Show.css';
 import {
@@ -35,7 +36,7 @@ export default class Show extends Component {
 
            .then(() => {
              this.setState({created: this.state.post.createdAt.slice(0, 10)})
-             console.log(this.state.created) 
+             console.log(this.state.created)
            })
 
       axios.get(`https://ga-aha.herokuapp.com/${selectedPost}/comments`)
@@ -46,7 +47,7 @@ export default class Show extends Component {
         .then(response => this.setState({tags: response.data}))
         .catch((err) => console.log(err))
     }
-    
+
 
   render () {
     return (
@@ -54,10 +55,18 @@ export default class Show extends Component {
 
         {/* post */}
         <section className='col s12'>
-          <h3>{this.state.post.title}</h3>
+          <div className="flexrow">
+            <h4>{this.state.post.title}</h4>
+            {/* tags to a post */}
+            <img src={require('./img/tag1.png')} />
+            {this.state.tags.map(tag => {
+              return (<li className="tagList" key={tag._id}>{tag.name}</li>)
+            })}
+          </div>
+          <Link to={`/${this.state.post._id}/updatePost`}>(edit)</Link>
           <p>By: {this.state.post.name}</p>
           <p>Created On: {this.state.created}</p>
-]         <p>{this.state.post.content}</p>
+          <p className='content'>{this.state.post.content}</p>
           <Link to={`/project3-front/${this.state.post._id}/updatePost`}>(edit)</Link>
         </section>
 
@@ -67,20 +76,16 @@ export default class Show extends Component {
             <ul>
               {this.state.comments.map(comment => {
                 return (
-                  <div class='comment'key={comment._id}>
+                  <div className='comment'key={comment._id}>
                     <p>{comment.content}</p>
-                    <h6>by: {comment.name}</h6>
+                    <h6> ~ {comment.name}</h6>
                   </div>)
               })}
             </ul>
         </section>
-        
-        {/* tags */}
+
+        {/* calling tags component */}
         <section className='col s4'>
-          <h5 className='center-align'>Tags</h5>
-          {this.state.tags.map(tag => {
-            return (<li key={tag._id}>{tag.name}</li>)
-          })}
           <Tags post={this.state.post}/>
         </section>
       </div>
