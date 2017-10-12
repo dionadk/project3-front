@@ -108,12 +108,12 @@ class App extends Component {
 
                   {/* logo and home link */}
                   <div className='col s1 red center-align'>
-                    <Link to="/">GA Blog v8</Link>
+                    <Link to="/project3-front">GA Blog v8</Link>
                   </div>
 
                   {/* create new post */}
                   <div className='col s2 red'>
-                    <Link to="/postCreate">(+) New Post</Link>
+                    <Link to="/project3-front/postCreate">(+) New Aha</Link>
                   </div>
                   {/* search */}
                   <div className="col s4 offset-s5 black searchTag">
@@ -125,7 +125,7 @@ class App extends Component {
                 </nav>
                 <Switch>
                   {/* display large photo header on homepage */}
-                  <Route exact path='/' render={() => (
+                  <Route exact path='/project3-front' render={() => (
                     <LargeHeader />
                   )} />
                   {/* <Route path='/*' render={() => (
@@ -169,7 +169,7 @@ class App extends Component {
 
                 {/* redirect to homepage */}
                 <Route
-                  path="/*" render={() => (<Redirect to="/" />)}
+                  path="/project3-front/*" render={() => (<Redirect to="/project3-front" />)}
                 />
                   )}/>
               </Switch>
