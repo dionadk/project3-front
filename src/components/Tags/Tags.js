@@ -44,7 +44,7 @@ export default class Tags extends Component {
       <div className="addTag">
         <form onSubmit={this.handleSubmitTag}>
           <input className="tagInput" name="name" type="text" placeholder="Add a tag" onChange={this.handleCreateTag} />
-          <button type='submit'>+</button>
+          <button type='submit'>Tag It</button>
         </form>
       </div>
     )

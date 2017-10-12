@@ -46,7 +46,7 @@ export default class Add extends Component {
     return (
       <div className="add post-container">
 
-        <h2>create a post</h2>
+        <h4>Share your Moments</h4>
 
         <form onSubmit={this.handleSubmitPost}>
           <div className="flexcol">

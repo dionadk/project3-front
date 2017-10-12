@@ -23,11 +23,24 @@ import {
 class App extends Component {
   constructor(props) {
     super (props)
+    var today = new Date()
+    var m_names = new Array("Jan", "Feb", "Mar",
+    "Apr", "May", "Jun", "Jul", "Aug", "Sep",
+    "Oct", "Nov", "Dec");
+
+    var d = new Date();
+    var curr_date = d.getDate();
+    var curr_month = d.getMonth();
+    var curr_year = d.getFullYear();
+    var date =  m_names[curr_month] + ' ' + curr_date;
     this.state = {
         posts: [],
         weather:"Sunny",
-        temperature: "0"
+        temperature: "0",
+        date: date
   }
+
+  console.log(date)
 }
 
   componentWillMount () {
@@ -42,7 +55,8 @@ class App extends Component {
   axios.get("http://localhost:4000/")
   .then(response => {
     this.setState({
-      posts: response.data
+      posts: response.data,
+
     })
   })
   .catch((err) => {
@@ -174,9 +188,26 @@ class App extends Component {
                   <div className="flexcol">
                     <label className="weatherInfo">{this.state.temperature}&#176;F</label>
                     <label>Washington, DC</label>
+
                   </div>
+
                 </div>
               </div>
+                <div className="row">
+                  <h5>Upcoming Events</h5>
+                </div>
+                <div className="row currDate">
+                    <h4>{this.state.date}</h4>
+
+                    <p>Tech and Advertising with Twitter</p>
+                    <p>Digital MArketing info Session</p>
+                </div>
+                <div className="row currDate">
+                    <p>Adobe Indesign Bootcamp</p>
+                    <p>SQL Bootcamp</p>
+                    <p>Intro to R</p>
+                </div>
+
 
             </section>
           </div>

@@ -74,6 +74,13 @@ button {
   font-size: 31px;
   margin-bottom: -13px;
 }
+.currDate {
+  min-height: 150px;
+  margin: 40px 20px;
+  font-size: 20px;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 5px lightgray;
+}
 .flexrow {
     display: flex;
     -ms-flex-direction: row;
