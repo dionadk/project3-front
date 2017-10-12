@@ -78,7 +78,7 @@ export default class Show extends Component {
                 return (
                   <div className='comment'key={comment._id}>
                     <p>{comment.content}</p>
-                    <h6>by: {comment.name}</h6>
+                    <h6> ~ {comment.name}</h6>
                   </div>)
               })}
             </ul>
