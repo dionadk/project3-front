@@ -38,7 +38,6 @@ export default class Post extends Component {
             tags: response.data
           })
           var filtered = [];
-          
   
           for (var i = 0; i < response.data.length; i++) {
             filtered.push(this.props.posts.filter((e) => e._id === response.data[i].post));
@@ -61,15 +60,11 @@ export default class Post extends Component {
   let displayedPosts = []
   if (this.state.searched) {
     displayedPosts = []
-    console.log('searched')
     this.state.searchedPosts.forEach(post => {displayedPosts.push(post)})
-    console.log(displayedPosts)
 
   } else {
     displayedPosts = []
-    console.log('notsearched')
     this.props.posts.forEach(post => {displayedPosts.push(post)})
-    console.log(displayedPosts)
   }
   
   

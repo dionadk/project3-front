@@ -6,16 +6,13 @@ export default class Edit extends Component {
     constructor(props){
       super(props)
       let selectedPost = this.props.match.params._id
-      console.log(props)
       let singlePost = props.posts.filter(item => item._id === selectedPost)
-      console.log(singlePost[0].name)
       this.state = {
         post: [],
         newName: singlePost[0].name,
         newTitle: singlePost[0].title,
         newContent: singlePost[0].content
       }
-      console.log(this.props.name)
 
         this.handleUpdatePost = this.handleUpdatePost.bind(this)
         this.handleSubmitPost = this.handleSubmitPost.bind(this)
@@ -31,13 +28,11 @@ export default class Edit extends Component {
 
     handleUpdatePost (e) {
       e.preventDefault()
-      console.log(e);
       const name = e.target.name
       // let updatePost = []
       this.setState ({
         [name]: e.target.value
       })
-      console.log(e.target.value);
     }
 
     handleSubmitPost(e) {

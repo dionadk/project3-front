@@ -36,7 +36,6 @@ export default class Show extends Component {
 
            .then(() => {
              this.setState({created: this.state.post.createdAt.slice(0, 10)})
-             console.log(this.state.created)
            })
 
       axios.get(`https://ga-aha.herokuapp.com/${selectedPost}/comments`)

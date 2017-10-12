@@ -40,8 +40,6 @@ class App extends Component {
         temperature: "0",
         date: date
     }
-    // this.handleSearchTag = this.handleSearchTag.bind(this)
-    // this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
   }
 
   componentWillMount () {
