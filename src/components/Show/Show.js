@@ -63,11 +63,10 @@ export default class Show extends Component {
               return (<li className="tagList" key={tag._id}>{tag.name}</li>)
             })}
           </div>
-          <Link to={`/${this.state.post._id}/updatePost`}>(edit)</Link>
+          <Link to={`/project3-front/${this.state.post._id}/updatePost`}>(edit)</Link>
           <p>By: {this.state.post.name}</p>
           <p>Created On: {this.state.created}</p>
           <p className='content'>{this.state.post.content}</p>
-          <Link to={`/project3-front/${this.state.post._id}/updatePost`}>(edit)</Link>
         </section>
 
         {/* comments */}
