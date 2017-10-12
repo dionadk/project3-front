@@ -28,6 +28,9 @@
   to { transform: rotate(360deg); }
 }*/
 
+.clearSpace {
+  margin-top: -8vh;
+}
 .blogPost{
   border: 1px solid lightgray;
   box-shadow: 1px 1px 5px lightgray;
