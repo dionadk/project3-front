@@ -107,11 +107,12 @@ class App extends Component {
                   <Link to="/postCreate">(+) New Post</Link>
                 </div>
                 {/* search */}
-
-                <form className="col s4 offset-s2 red searchTag" value="search" onSubmit={(e) => this.handleSearchSubmit(e)}>
-                      <input className="col-s6" onChange={(e) => this.handleSearchTag(e)}/>
-                      {/* <input className="col s6 red" type="submit" value="Search"/> */}
+                <div className="col s4 offset-s5 black searchTag">
+                <form onSubmit={(e) => this.handleSearchSubmit(e)}>
+                      <input className="col s6 black" onChange={(e) => this.handleSearchTag(e)}/>
+                      {/* <button className="col s4 red" type="submit">Search</button> */}
                 </form>
+              </div>
 
               </nav>
 
