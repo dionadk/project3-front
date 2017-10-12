@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Comments from '../Comments/Comments.js';
 import Tags from '../Tags/Tags.js';
+
 import axios from 'axios';
 import './Show.css';
 import {
@@ -57,6 +58,7 @@ export default class Show extends Component {
           <div className="flexrow">
             <h4>{this.state.post.title}</h4>
             {/* tags to a post */}
+            <img src={require('./img/tag1.png')} />
             {this.state.tags.map(tag => {
               return (<li className="tagList" key={tag._id}>{tag.name}</li>)
             })}
