@@ -51,29 +51,16 @@ class App extends Component {
         })
     })
 
-    axios.get("http://localhost:4000/")
+    axios.get("https://ga-aha.herokuapp.com/")
     .then(response => {
       this.setState({
-      posts: response.data,
+        posts: response.data
       })
-<<<<<<< HEAD
-  })
-
-  axios.get("https://ga-aha.herokuapp.com/")
-  .then(response => {
-    this.setState({
-      posts: response.data
-    })
-  })
-  .catch((err) => {
-      console.log(err)
-=======
->>>>>>> teamWork
     })
     .catch((err) => {
         console.log(err)
-      })
-  }
+    })
+} 
 
   handleSearchTag (e) {
     this.setState ({
@@ -84,12 +71,8 @@ class App extends Component {
   handleSearchSubmit (e) {
     console.log(this.state.posts)
     e.preventDefault ()
-<<<<<<< HEAD
     //var result=[]
     axios.get(`https://ga-aha.herokuapp.com/tags/${this.state.searchTag}`)
-=======
-      axios.get(`http://localhost:4000/tags/${this.state.searchTag}`)
->>>>>>> teamWork
       .then(response => {
         this.setState({
           tags:response.data
