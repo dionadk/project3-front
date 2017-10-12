@@ -38,6 +38,9 @@
   color: black;
   margin: 10px 20px !important;
   padding: 200px;
+  max-height: 30vh;
+  overflow-y: auto;
+
 }
 .blogPost:hover{
 box-shadow: 3px 3px 5px lightgray;
@@ -48,6 +51,7 @@ color: red;
   line-height: 24px;
   font-size: 16px;
   letter-spacing: 1.5px;
+
 }
 
 .postHeader {

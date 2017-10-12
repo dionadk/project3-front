@@ -6,7 +6,11 @@
   margin: 5px 10px !important;
   padding: 10px !important;
 }
-
+.content {
+  font-size: 22px;
+  line-height: 36px;
+  color: #343434;
+}
 
 .flexContainer {
   display: flex;

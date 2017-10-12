@@ -66,7 +66,7 @@ export default class Show extends Component {
           <Link to={`/${this.state.post._id}/updatePost`}>(edit)</Link>
           <p>By: {this.state.post.name}</p>
           <p>Created On: {this.state.created}</p>
-          <p>{this.state.post.content}</p>
+          <p className='content'>{this.state.post.content}</p>
 
         </section>
 
