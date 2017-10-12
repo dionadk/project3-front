@@ -16,26 +16,26 @@ export default class Add extends Component {
       this.handleSubmitPost = this.handleSubmitPost.bind(this)
   }
 
+  // sets state with form values
   handleCreatePost (e) {
     e.preventDefault()
     const name = e.target.name
-    // let newPost = []
     this.setState ({
       [name]: e.target.value
     })
   }
 
-
+  // on submit: creates post
   handleSubmitPost(e) {
     e.preventDefault()
-    axios.post("http://localhost:4000/postCreate", {
+    // create new post in the database
+    axios.post("https://ga-aha.herokuapp.com/postCreate", {
         name: this.state.name,
         title: this.state.title,
         content: this.state.content,
     }).then((response)=>{
-      console.log(response)
-      // after post is created redirects to edit posts page to add a tag to post
-      window.location.href= "/" + response.data._id;
+      // redirects to edit posts page
+      window.location.href= "/project3-front/" + response.data._id;
     }).catch((err) => {
       console.log(err)
     })
@@ -45,23 +45,20 @@ export default class Add extends Component {
 
     return (
       <div className="add post-container">
+        <h4>Share your Moments</h4>
 
-        <h2>Voice your ideas!!!</h2>
+        {/* new post form */}
         <form onSubmit={this.handleSubmitPost}>
           <div className="flexcol">
-          <input name="title" type="text" placeholder="title" onChange={this.handleCreatePost} />
-          <input name="name" type="text" placeholder="name"  onChange={this.handleCreatePost} />
-          <div className="flexrow">
-            <textarea name="content" type="text" placeholder="content" onChange={this.handleCreatePost} />
-            <button className="add-btn" type="submit" value="Create">Create</button>
-        </div>
-        </div>
+            <input name="title" type="text" placeholder="title" onChange={this.handleCreatePost} />
+            <input name="name" type="text" placeholder="name"  onChange={this.handleCreatePost} />
+            <div className="flexrow">
+              <textarea name="content" type="text" placeholder="content" onChange={this.handleCreatePost} />
+              <button className="add-btn" type="submit" value="Create">Create</button>
+            </div>
+          </div>
         </form>
-
       </div>
-
     )
-
   }
-
 }

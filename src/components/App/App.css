@@ -1,40 +1,49 @@
-/*.App {
+
+
+<link href="https://fonts.googleapis.com/css?family=Vast+Shadow" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Kumar+One+Outline|Pacifico" rel="stylesheet">
+.header {
+
+}
+.background-image{
+  background-image: url('./images/Project3 Pic.jpg');
+  height: 40vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button {
+  height: 64px;
+}
+
+.searchTag {
+  display: inline;
+}
+.white-text{
+
+  font-weight: bold;
   text-align: center;
+  margin-top: -40px;
+  margin-left: 500px;
+  font-family: 'Pacifico', cursive;
+  /*font-family: 'Faster One', cursive;*/
+}
+h1.red-text{
+  text-align: center;
+  font-family: 'Faster One', cursive;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.navbar{
+  position: fixed;
+  top: 0;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}*/
-
-.image_container {
-  background-image: url("https://imgur.com/5rHSZR8.jpg");
-    height: 270px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /*background-attachment: fixed;*/
+.header h1 {
+  padding: 10vh 10vw 2vh 10vw;
+  font-size: 150px;
+  font-family: 'Faster One', cursive;
 }
 .flexcol{
     display: flex;
@@ -59,13 +68,31 @@
   height: 50px;
 }
 .weatherInfo{
-  color: dimgray;
+  color: #700000;
   font-size: 31px;
   margin-bottom: -13px;
+}
+.eventStyle {
+  margin-left: 20px;
+  margin-top: 50px;
+  margin-bottom: -20px;
+  font-weight: bolder;
+}
+.currDate {
+  min-height: 150px;
+  margin: 40px 20px;
+  font-size: 20px;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 5px lightgray;
+
 }
 .flexrow {
     display: flex;
     -ms-flex-direction: row;
     -webkit-flex-direction: row;
     flex-direction: row;
+}
+
+.mainSection {
+  margin: 8vh 0 0 0;
 }

@@ -6,16 +6,13 @@ export default class Edit extends Component {
     constructor(props){
       super(props)
       let selectedPost = this.props.match.params._id
-      console.log(props)
       let singlePost = props.posts.filter(item => item._id === selectedPost)
-      console.log(singlePost[0].name)
       this.state = {
         post: [],
         newName: singlePost[0].name,
         newTitle: singlePost[0].title,
         newContent: singlePost[0].content
       }
-      console.log(this.props.name)
 
         this.handleUpdatePost = this.handleUpdatePost.bind(this)
         this.handleSubmitPost = this.handleSubmitPost.bind(this)
@@ -24,44 +21,40 @@ export default class Edit extends Component {
 
     componentDidMount () {
       let selectedPost = this.props.match.params._id
-      axios.get(`http://localhost:4000/${selectedPost}`)
+      axios.get(`https://ga-aha.herokuapp.com/${selectedPost}`)
            .then(response => this.setState({post: response.data}))
            .catch((err) => console.log(err))
-
       }
 
     handleUpdatePost (e) {
       e.preventDefault()
-      console.log(e);
       const name = e.target.name
       // let updatePost = []
       this.setState ({
         [name]: e.target.value
       })
-      console.log(e.target.value);
     }
 
     handleSubmitPost(e) {
       e.preventDefault()
-        axios.post(`http://localhost:4000/${this.state.post._id}/updatePost`,{name: this.state.newName,title: this.state.newTitle,content: this.state.newContent})
+      axios.post(`https://ga-aha.herokuapp.com/${this.state.post._id}/updatePost`,{name: this.state.newName,title: this.state.newTitle,content: this.state.newContent})
         .then((response)=>{
 
           // after post is created redirects to edit posts page to add a tag to post
-          window.location.href= "/" + response.data._id;
-
+          window.location.href= "/project3-front/" + response.data._id;
     })
   }
 
     handleDeletePost(e) {
       e.preventDefault()
-      axios.post(`http://localhost:4000/${this.state.post._id}/deletePost`)
+      axios.post(`https://ga-aha.herokuapp.com/${this.state.post._id}/deletePost`)
       // redirects to home page
-      window.location.href= "/"
+      window.location.href= "/project3-front"
     }
 
     render () {
       return (
-        <div className="edit post-container">
+        <div className="edit post-container ">
 
           <form onSubmit={this.handleSubmitPost}>
             <div className="flexcol">
@@ -81,8 +74,5 @@ export default class Edit extends Component {
         </div>
       )
     }
-
-
-
 
 }
