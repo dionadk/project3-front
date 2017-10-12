@@ -3,12 +3,12 @@
 Ga-Aha is a blog designed for General Assembly students to share their 'aha' moments. It was built in four days using ReactJS as our front-end library, Express to build the back-end and Mongoose for our database. We also used MaterializeCSS to streamline styling.
 
 ### Our Team
--Diona Kurien (dionadk)
+* Diona Kurien (dionadk)
 -Max Oppenheimer (OppNHeimer)
 -Aaliyah Melton (AaliyahMe123)
 -Drew Dandrea (ddandrea00)
 
-###Our MVP goals:
+### Our MVP goals:
 -Users can view, create, edit, and delete posts.
 -Users can comment on posts
 
