@@ -189,12 +189,12 @@ class App extends Component {
 
               {/* Upcoming Events */}
                 <div className="row">
-                  <h5>Upcoming Events</h5>
+                  <h5 className="eventStyle">Upcoming Events</h5>
                 </div>
                 <div className="row currDate">
                     <h4>{this.state.date}</h4>
                     <p>Tech and Advertising with Twitter</p>
-                    <p>Digital MArketing info Session</p>
+                    <p>Digital Marketing info Session</p>
                 </div>
                 <div className="row currDate">
                     <p>Adobe Indesign Bootcamp</p>
