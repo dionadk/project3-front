@@ -25,36 +25,32 @@ export default class Comments extends Component {
 
   handleSubmitComment(e) {
     e.preventDefault()
-    console.log(this.state.name, this.state.content, this.state.post)
     axios.post("https://ga-aha.herokuapp.com/createComment", {
         name: this.state.name,
         content: this.state.content,
         post: this.state.post
     })
     .then((response)=>{
-       this.props.history.goBack()
+       window.location.href = "/project3-front/" + response.data.post;
     })
     .catch((err) => {
       console.log(err)
     })
-
 }
   render(){
 
     return(
       <div className="add">
-
-        <h2>Feedbacks</h2>
-        <div className="flexContainer">
+      <h5>Feedback</h5>
+      <div className="flexContainer">
         <div className="flexColumn formColumn">
         <form onSubmit={this.handleSubmitComment}>
           <input name="name" type="text" placeholder="name" onChange={this.handleCreateComment} />
-          <input name="content" type="text" placeholder="content" onChange={this.handleCreateComment} />
+          <textarea name="content" type="text" placeholder="content" onChange={this.handleCreateComment} />
           <button type='submit'>Comment</button>
         </form>
+        </div>
       </div>
-    </div>
-
       </div>
     )
   }
