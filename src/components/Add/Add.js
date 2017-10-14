@@ -29,7 +29,7 @@ export default class Add extends Component {
   handleSubmitPost(e) {
     e.preventDefault()
     // create new post in the database
-    axios.post("https://ga-aha.herokuapp.com/postCreate", {
+    axios.post("https://peaceful-river-87816.herokuapp.com/postCreate", {
         name: this.state.name,
         title: this.state.title,
         content: this.state.content,

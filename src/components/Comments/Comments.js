@@ -25,7 +25,7 @@ export default class Comments extends Component {
 
   handleSubmitComment(e) {
     e.preventDefault()
-    axios.post("https://ga-aha.herokuapp.com/createComment", {
+    axios.post("https://peaceful-river-87816.herokuapp.com/createComment", {
         name: this.state.name,
         content: this.state.content,
         post: this.state.post
