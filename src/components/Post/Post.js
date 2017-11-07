@@ -32,7 +32,7 @@ export default class Post extends Component {
     e.preventDefault()
     if (this.state.searchTag) {
       //var result=[]
-      axios.get(`https://ga-aha.herokuapp.com/tags/${this.state.searchTag}`)
+      axios.get(`https://peaceful-river-87816.herokuapp.com/tags/${this.state.searchTag}`)
         .then(response => {
           this.setState({
             tags: response.data
