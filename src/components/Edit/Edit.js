@@ -37,7 +37,7 @@ export default class Edit extends Component {
 
     handleSubmitPost(e) {
       e.preventDefault()
-      axios.post(`https://ga-aha.herokuapp.com/${this.state.post._id}/updatePost`,{name: this.state.newName,title: this.state.newTitle,content: this.state.newContent})
+      axios.post(`https://peaceful-river-87816.herokuapp.com/${this.state.post._id}/updatePost`,{name: this.state.newName,title: this.state.newTitle,content: this.state.newContent})
         .then((response)=>{
 
           // after post is created redirects to edit posts page to add a tag to post
@@ -48,7 +48,7 @@ export default class Edit extends Component {
     handleDeletePost(e) {
       e.preventDefault()
       axios.post(`https://peaceful-river-87816.herokuapp.com/${this.state.post._id}/deletePost`)
-      // redirects to home page
+      // redirects to home page1
       window.location.href= "/project3-front"
     }
 

@@ -128,7 +128,7 @@ class App extends Component {
                 <Route exact path="/project3-front/:_id/updatePost" render={(props) => (
                   <Edit
                     {...props}
-                    posts={this.state.posts}
+                    todos={this.state.todos}
                   />
                 )} />
 
