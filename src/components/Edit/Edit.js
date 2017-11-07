@@ -21,7 +21,7 @@ export default class Edit extends Component {
 
     componentDidMount () {
       let selectedPost = this.props.match.params._id
-      axios.get(`https://ga-aha.herokuapp.com/${selectedPost}`)
+      axios.get(`https://peaceful-river-87816.herokuapp.com/${selectedPost}`)
            .then(response => this.setState({post: response.data}))
            .catch((err) => console.log(err))
       }
